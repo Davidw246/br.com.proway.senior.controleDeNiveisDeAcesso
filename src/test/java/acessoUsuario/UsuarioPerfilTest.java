@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class PerfilTest {
+public class UsuarioPerfilTest {
 
 	@Test
 	public void testLogarPerfil() {
-		Perfil meuPerfil = new Perfil();
+		UsuarioPerfil meuPerfil = new UsuarioPerfil();
 		String nome = "CLAUDIO";
 		String senha = "1234";
 		assertTrue(meuPerfil.logarPerfil(nome, senha));
@@ -16,7 +16,7 @@ public class PerfilTest {
 
 	@Test
 	public void testLogarPerfilFalse() {
-		Perfil meuPerfil = new Perfil();
+		UsuarioPerfil meuPerfil = new UsuarioPerfil();
 		String nome = "Claudio";
 		String senha = "12345";
 		assertFalse(meuPerfil.logarPerfil(nome, senha));
@@ -25,7 +25,7 @@ public class PerfilTest {
 		
 	@Test
 	public void testLogarPerfilVazio() {
-		Perfil meuPerfil = new Perfil();
+		UsuarioPerfil meuPerfil = new UsuarioPerfil();
 		String nome = "";
 		String senha = "";
 		assertFalse(meuPerfil.logarPerfil(nome, senha));
@@ -33,7 +33,7 @@ public class PerfilTest {
 
 	@Test
 	public void testLogarPerfilNull() {
-		Perfil meuPerfil = new Perfil();
+		UsuarioPerfil meuPerfil = new UsuarioPerfil();
 		String nome = null;
 		String senha = null;
 		assertFalse(meuPerfil.logarPerfil(nome, senha));

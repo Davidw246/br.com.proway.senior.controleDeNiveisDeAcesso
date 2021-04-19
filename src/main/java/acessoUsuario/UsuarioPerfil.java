@@ -1,6 +1,6 @@
 package acessoUsuario;
 
-public class Perfil {
+public class UsuarioPerfil {
 
 	String nome = "claudio";
 	String senha = "1234";
