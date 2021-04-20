@@ -1,6 +1,6 @@
 package acessoUsuario;
 
-public class Perfil implements PerfilInterface {
+public class UsuarioPerfil implements PerfilInterface {
 
 	private String nome;
 

@@ -1,4 +1,4 @@
-package acessoUsuario;
+package br.com.proway.senior.com.controle2;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -32,9 +32,9 @@ public class RecebeIdCadastroTest {
 		idTest.add(3);
 		idTest.add(4);
 
-		assertTrue(RecebeIdCadastro.ValidaId(idValido));
-		System.out.println("Relação de id true: " + idTest);
-
+		assertTrue(RecebeIdCadastro.EqualsId());
+		System.out.println();
+		System.out.println("Relação de IDs validados: " + idTest);
 	}
 
 	/**
@@ -57,9 +57,9 @@ public class RecebeIdCadastroTest {
 		idTestInvalido.add(4);
 
 		assertTrue(RecebeIdCadastro.ValidaId(idInvalido));
-		System.out.println("Relação de id false: " + idTestInvalido);
+		System.out.println();
+		System.out.println("Relação de IDs com pelo menos uma informação 'false': " + idTestInvalido);
 		System.out.println("O Id nulo se encontra na posição: " + idTestInvalido.indexOf(null));
-
 	}
 
 	/**
@@ -80,10 +80,7 @@ public class RecebeIdCadastroTest {
 		testComparaListaId.add(2);
 		testComparaListaId.add(3);
 		testComparaListaId.add(4);
-		/*
-		ArrayList<Integer> listaIdRecebida = new ArrayList(); 
-		listaIdRecebida = RecebeIdCadastro.id;
-			*/
+		
 		ArrayList<Integer> listaIdRecebida = new ArrayList(); 
 		listaIdRecebida.add(0);
 		listaIdRecebida.add(1);
@@ -91,17 +88,11 @@ public class RecebeIdCadastroTest {
 		listaIdRecebida.add(3);
 		listaIdRecebida.add(4);
 		
-		
-		//ArrayList<String> listaNomesRecebidos = RecebeIdCadastro.nome;
-		//ArrayList<String> listaEmailsRecebidos = RecebeIdCadastro.email;
-		
+		System.out.println();
 		System.out.println("Relação de ids recebido: " + listaIdRecebida);
 		System.out.println("Relação de ids para comparação: " + testComparaListaId);
-		
-		assertEquals(testComparaListaId, listaIdRecebida);
-		
-		
-		
+		System.out.println();
+		assertEquals(testComparaListaId, listaIdRecebida);		
 	}
 
 	/**
@@ -126,9 +117,8 @@ public class RecebeIdCadastroTest {
 
 		assertTrue(RecebeIdCadastro.ValidaNome(nomeValido));
 		System.out.println("Relação de nomes true: " + nomeTestValido);
-
 	}
-
+	
 	/**
 	 * Testa se existe pelo menos um nome cadastrado nullo
 	 * 
@@ -153,9 +143,27 @@ public class RecebeIdCadastroTest {
 		assertTrue(RecebeIdCadastro.ValidaNome(nomeInvalido));
 		System.out.println("Relação de nomes false: " + nomeTestInvalido);
 		System.out.println("O nome nulo se encontra na posição: " + nomeTestInvalido.indexOf(null));
-
 	}
 
+	/**
+	 * Verifica se o nome cadastrado está correto
+	 * 
+	 * Verifica se não há caracteres especiais ou numéricos no nome, informando se o nome é true ou false.
+	 * 
+	 */
+	@Test
+	public void testValidaDadosNomeValido() {
+		
+		String nomeTestValido = "Vanderlei";
+				
+		boolean nomeValido;
+		nomeValido = true;
+		
+		assertEquals(RecebeIdCadastro.validaDadosNome(nomeTestValido), nomeValido);
+		System.out.println();
+		System.out.println("O nome: "+ nomeTestValido + " é " + RecebeIdCadastro.validaDadosNome(nomeTestValido));
+	}
+	
 	/**
 	 * Testa se os e-mails cadastrados são válidos
 	 * 
@@ -177,7 +185,9 @@ public class RecebeIdCadastroTest {
 		emailTestValido.add("elton@companyname.com");
 
 		assertTrue(RecebeIdCadastro.ValidaEmail(emailValido));
+		System.out.println();
 		System.out.println("Relação de e-mails true: " + emailTestValido);
+		System.out.println();
 
 	}
 
@@ -204,24 +214,16 @@ public class RecebeIdCadastroTest {
 		emailTestInvalido.add(null);
 
 		assertTrue(RecebeIdCadastro.ValidaEmail(emailInvalido));
+		System.out.println();
 		System.out.println("Relação de e-mails true: " + emailTestInvalido);
 		System.out.println("O e-mail nulo se encontra na posição: " + emailTestInvalido.indexOf(null));
+		System.out.println();
 
 	}
-	
-	@Test
-	public void testValidaCorpoEmailInvalido() {
-		
-		String emailTestInvalido = "guilherme@com@panyname.com";
-						
-		boolean emailInvalido;
-		emailInvalido = false;
-		
-		assertEquals(RecebeIdCadastro.isValidEmail(emailTestInvalido), emailInvalido);
-		System.out.println("O email: "+ emailTestInvalido + " é " + RecebeIdCadastro.isValidEmail(emailTestInvalido));
-		
-	}// fim método valida testValidaCorpoEmailInvalido
-	
+
+	/**
+	 * Testa se o endereço de e-mail está corretamente cadastrado, retornando que o endereço é true.
+	 */
 	@Test
 	public void testValidaCorpoEmailValido() {
 		
@@ -232,6 +234,20 @@ public class RecebeIdCadastroTest {
 		
 		assertEquals(RecebeIdCadastro.isValidEmail(emailTestValido), emailValido);
 		System.out.println("O email: "+ emailTestValido + " é " + RecebeIdCadastro.isValidEmail(emailTestValido));
-        
-	}// fim método valida testValidaCorpoEmailValido
+	}
+	
+	/**
+	 * Testa se o endereço de e-mail não está corretamente cadastrado, retornando que o endereço é false.
+	 */
+	@Test
+	public void testValidaCorpoEmailInvalido() {
+		
+		String emailTestInvalido = "guilherme@com@panyname.com";
+						
+		boolean emailInvalido;
+		emailInvalido = false;
+		
+		assertEquals(RecebeIdCadastro.isValidEmail(emailTestInvalido), emailInvalido);
+		System.out.println("O email: "+ emailTestInvalido + " é " + RecebeIdCadastro.isValidEmail(emailTestInvalido));
+	}
 }
