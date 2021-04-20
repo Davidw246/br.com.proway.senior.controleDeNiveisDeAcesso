@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import acessoUsuario.ValidaLoginLetras;
 
-public class validaLoginLetrasTest {
+public class ValidaLoginLetrasTest {
 
 	@Test
 	public void testValidaLoginLetras() {

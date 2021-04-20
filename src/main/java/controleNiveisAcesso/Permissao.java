@@ -2,38 +2,57 @@ package controleNiveisAcesso;
 
 import java.util.ArrayList;
 
-public class Permissao {
+import interfaceControleAcesso.InterfacePermissao;
 
-	ArrayList<String> nomeDasPermissoes = new ArrayList<String>();
+public class Permissao implements InterfacePermissao {
+
+	private String nomeDaPermissao;
+	ArrayList<String> listaDasPermissoes = new ArrayList<String>();
+	
+	/**
+	 * Métodos de acesso
+	 * 
+	 * Nome da permissão do tipo String
+	 * 
+	 * @return nomeDaPermissao	String
+	 */
+	public String getNomeDaPermissao() {
+		return nomeDaPermissao;
+	}
+
+	public void setNomeDaPermissao(String nomeDaPermissao) {
+		this.nomeDaPermissao = nomeDaPermissao;
+	}
 
 	/**
-	 * Um método que cria o nome da permissão Verifica se o nome se o nome recebido
-	 * é nulo ou vazio.
+	 * Um método que cria o nome da permissão
+	 * Verifica se o nome se o nome recebido é nulo ou vazio.
 	 * 
-	 * @param nomeDaPermissao é uma String
-	 * @return retorna true ou false
+	 * @param nomeDaPermissao	Recebe String
+	 * @return true || false	boolean
 	 */
 	public boolean criaNomePermissao(String nomeDaPermissao) {
-		if (nomeDaPermissao == null) {
-			return false;
-		} else if (nomeDaPermissao.equals("")) {
+		if (nomeDaPermissao.equals("") || nomeDaPermissao.equals(null)) {
 			return false;
 		} else {
-			nomeDasPermissoes.add(nomeDaPermissao);
+			setNomeDaPermissao(nomeDaPermissao);
+			listaDasPermissoes.add(nomeDaPermissao);
 			return true;
 		}
 	}
 
 	/**
-	 * Método que retorna true caso o perfil esteja autorizado
+	 * Método que retorna uma String com a escolha da permissao
 	 * 
-	 * @param perfil
-	 * @return true
+	 * Valida se o nome da permissao esta dentro do Array de permissoes
+	 * 
+	 * @param nomeDaPermissao	Recebe String
+	 * @return true || false	boolean
 	 */
 	public String escolhaDaPermissao(String nomeDaPermissao) {
 		String validacao = "";
-		for (int i = 0; i < nomeDasPermissoes.size(); i++) {
-			if (nomeDaPermissao.equalsIgnoreCase(nomeDasPermissoes.get(i))) {
+		for (int i = 0; i < listaDasPermissoes.size(); i++) {
+			if (nomeDaPermissao.equalsIgnoreCase(listaDasPermissoes.get(i))) {
 				validacao = nomeDaPermissao;
 			} else {
 				validacao = "Você não tem acesso";

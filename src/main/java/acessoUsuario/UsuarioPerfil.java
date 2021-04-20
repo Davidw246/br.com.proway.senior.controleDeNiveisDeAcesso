@@ -27,7 +27,7 @@ public class UsuarioPerfil implements PerfilInterface {
 	 * 
 	 * @param nome
 	 * @param senha
-	 * @return
+	 * @return true boolean
 	 */
 
 	public boolean logarPerfil(String nome, String senha) {
