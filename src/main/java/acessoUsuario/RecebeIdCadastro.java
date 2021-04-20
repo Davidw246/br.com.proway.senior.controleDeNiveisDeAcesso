@@ -1,4 +1,4 @@
-package acessoUsuario;
+package br.com.proway.senior.com.controle2;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -37,8 +37,7 @@ public class RecebeIdCadastro {
 		id.add(3);
 		id.add(4);
 		return id;
-
-	}// fim PopulaDadosId
+	}
 
 	public static void PopulaDadosNome(ArrayList<String> nome) {
 		// Popula os dados nome
@@ -48,8 +47,7 @@ public class RecebeIdCadastro {
 		nome.add("Tharlys");
 		nome.add("Vanderlei");
 		nome.add("Elton");
-
-	}// fim PopulaDadosNome
+	}
 	
 	public static ArrayList<String> getNome() {
 		return nome;
@@ -62,11 +60,13 @@ public class RecebeIdCadastro {
 		email.add("tharlys@companyname.com");
 		email.add("vanderlei@companyname.com");
 		email.add("elton@companyname.com");
-	}// fim PopulaDadosEmail
+	}
 
 	/**
 	 * Compara a lista de Id recebido e compara com uma lista padrão com as
 	 * informações esperadas.
+	 * 
+	 * 
 	 */
 	public static boolean EqualsId() {
 
@@ -103,11 +103,10 @@ public class RecebeIdCadastro {
 			if (id.contains(null)) {
 				idValido = false;
 			}
-			// System.out.println("Relação de id dos colaboradores recebidos: " + id);
+			System.out.println("Relação de IDs com pelo menos uma informação 'false': " + id);
 		}
 		return idValido;
-
-	}// Fim método ValidaId
+	}
 
 	public static boolean ValidaNome(boolean b) {
 
@@ -124,37 +123,31 @@ public class RecebeIdCadastro {
 			}
 			System.out.println("Relação de nomes dos colaboradores recebidos: " + nome);
 		}
-
 		return nomeValido;
+	}
 
-	}// fim método ValidaNome
-
-	// novo
-
-	public boolean validaDadosNome(String nome) {
+	/**
+	 * Valida os nomes recebidos em busca de caracteres especiais ou outro dado diferente de 
+	 * letras que possam tornar o nome nulo.
+	 *   
+	 */
+	public static boolean validaDadosNome(String nome) {
 
 		boolean dadosValidos = false;
-
+		
 		for (int i = 0; i <nome.length(); i++) {
 			if (nome.matches("[a-zA-Z]{1,}")) {
 				dadosValidos = true;
 			}
-		//	System.out.println("Relação de nomes dos colaboradores recebidos: " + nome); ver isso aqui
 		}
+		return dadosValidos;
+	}
 
-		//String listaNome = nome.getNome();
-		return nome.matches("[a-zA-Z]{1,}");
-
-		}
-
-	// novo
-
+	/**
+	 * O método ValidaEmail verifica se os endereços de e-mail dos colaboradores são
+	 * válidos e lista a relação na tela.
+	 */
 	public static boolean ValidaEmail(boolean b) {
-		/**
-		 * O método ValidaEmail verifica se os endereços de e-mail dos colaboradores são
-		 * válidos e lista a relação na tela.
-		 */
-
 		boolean emailValido = true;
 
 		for (int i = 0; i < email.size(); i++) {
@@ -163,12 +156,13 @@ public class RecebeIdCadastro {
 			}
 			System.out.println("Relação de e-mails dos colaboradores recebidos: " + email);
 		}
-
 		return emailValido;
+	}
 
-	}// Fim método ValidaEmail
-
-	// Novo
+	/**
+	 * Verifica se os endereços de e-mai foram cadastrados corretamente ou se possuem caracteres especiais.
+	 * 
+	 */
 	public static boolean isValidEmail(String email) {
 
 		boolean isValidEmail = false;
@@ -181,8 +175,5 @@ public class RecebeIdCadastro {
 			}
 		}
 		return isValidEmail;
-
-	}// fim método valida isValidEmail
-
-	// novo
-}// Fim classe RecebeIdCadastro
+	}
+}
