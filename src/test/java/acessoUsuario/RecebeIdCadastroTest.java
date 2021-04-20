@@ -1,14 +1,10 @@
 package acessoUsuario;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -21,11 +17,12 @@ import org.junit.Test;
 
 public class RecebeIdCadastroTest {
 
+	private boolean idValido;
+
 	@Test
 	public void testValidaIdTrue() {
-		boolean idValido;
-		idValido = true;
-		ArrayList<Integer> idTest = new ArrayList();
+		setIdValido(true);
+		ArrayList<Integer> idTest = new ArrayList<Integer>();
 		idTest.add(0);
 		idTest.add(1);
 		idTest.add(2);
@@ -49,7 +46,7 @@ public class RecebeIdCadastroTest {
 	public void testValidaIdFalse() {
 		boolean idInvalido;
 		idInvalido = false;
-		ArrayList<Integer> idTestInvalido = new ArrayList();
+		ArrayList<Integer> idTestInvalido = new ArrayList<Integer>();
 		idTestInvalido.add(0);
 		idTestInvalido.add(1);
 		idTestInvalido.add(null); // esta informação está incorreta
@@ -71,17 +68,14 @@ public class RecebeIdCadastroTest {
 	@Test
 	public void testComparaListaId() {
 		
-		boolean listasIguais;
-		listasIguais = true;
-		
-		ArrayList<Integer> testComparaListaId = new ArrayList();
+		ArrayList<Integer> testComparaListaId = new ArrayList<Integer>();
 		testComparaListaId.add(0);
 		testComparaListaId.add(1);
 		testComparaListaId.add(2);
 		testComparaListaId.add(3);
 		testComparaListaId.add(4);
 		
-		ArrayList<Integer> listaIdRecebida = new ArrayList(); 
+		ArrayList<Integer> listaIdRecebida = new ArrayList<Integer>(); 
 		listaIdRecebida.add(0);
 		listaIdRecebida.add(1);
 		listaIdRecebida.add(2);
@@ -108,7 +102,7 @@ public class RecebeIdCadastroTest {
 		boolean nomeValido;
 		nomeValido = true;
 
-		ArrayList<String> nomeTestValido = new ArrayList();
+		ArrayList<String> nomeTestValido = new ArrayList<String>();
 		nomeTestValido.add("Guilherme");
 		nomeTestValido.add("David W");
 		nomeTestValido.add("Tharlys");
@@ -133,7 +127,7 @@ public class RecebeIdCadastroTest {
 		boolean nomeInvalido;
 		nomeInvalido = true;
 
-		ArrayList<String> nomeTestInvalido = new ArrayList();
+		ArrayList<String> nomeTestInvalido = new ArrayList<String>();
 		nomeTestInvalido.add("Guilherme");
 		nomeTestInvalido.add("David W");
 		nomeTestInvalido.add("Tharlys");
@@ -177,7 +171,7 @@ public class RecebeIdCadastroTest {
 		boolean emailValido;
 		emailValido = true;
 
-		ArrayList<String> emailTestValido = new ArrayList();
+		ArrayList<String> emailTestValido = new ArrayList<String>();
 		emailTestValido.add("guilherme@companyname.com");
 		emailTestValido.add("david.w@companyname.com");
 		emailTestValido.add("tharlys@companyname.com");
@@ -206,7 +200,7 @@ public class RecebeIdCadastroTest {
 		boolean emailInvalido;
 		emailInvalido = true;
 
-		ArrayList<String> emailTestInvalido = new ArrayList();
+		ArrayList<String> emailTestInvalido = new ArrayList<String>();
 		emailTestInvalido.add("guilherme@companyname.com");
 		emailTestInvalido.add("david.w@companyname.com");
 		emailTestInvalido.add("tharlys@companyname.com");
@@ -249,5 +243,13 @@ public class RecebeIdCadastroTest {
 		
 		assertEquals(RecebeIdCadastro.isValidEmail(emailTestInvalido), emailInvalido);
 		System.out.println("O email: "+ emailTestInvalido + " é " + RecebeIdCadastro.isValidEmail(emailTestInvalido));
+	}
+
+	public boolean isIdValido() {
+		return idValido;
+	}
+
+	public void setIdValido(boolean idValido) {
+		this.idValido = idValido;
 	}
 }

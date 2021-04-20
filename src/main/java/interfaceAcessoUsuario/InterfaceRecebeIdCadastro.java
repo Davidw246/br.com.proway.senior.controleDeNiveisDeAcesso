@@ -1,4 +1,4 @@
-package br.com.proway.senior.com.controle2;
+package interfaceAcessoUsuario;
 
 public interface InterfaceRecebeIdCadastro {
 	
