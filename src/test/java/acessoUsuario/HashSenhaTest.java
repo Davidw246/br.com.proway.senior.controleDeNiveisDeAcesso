@@ -13,7 +13,7 @@ public class HashSenhaTest {
 		@Test
 		public void testHashSenha() {
 			HashSenha hash = new HashSenha();
-			String senha = "admin";
+			String senha = "123456";
 			assertEquals(hash.senhaUsuario, senha);
 		}
 	}
