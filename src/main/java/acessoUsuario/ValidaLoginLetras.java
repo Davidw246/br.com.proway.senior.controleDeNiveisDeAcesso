@@ -1,13 +1,9 @@
 package acessoUsuario;
 
-<<<<<<< HEAD:src/main/java/acessoUsuario/ValidaLoginLetras.java
-public class ValidaLoginLetras {
-=======
 import interfaceLogin.InterfaceValidaLoginLetras;
 
 public class ValidaLoginLetras extends VerificaLogin 
 implements InterfaceValidaLoginLetras {
->>>>>>> LoginAtualizacao:src/main/java/acessoUsuario/validaLoginLetras.java
 
 	/**
 	 * Verifica caracteres do usuário digitado.
