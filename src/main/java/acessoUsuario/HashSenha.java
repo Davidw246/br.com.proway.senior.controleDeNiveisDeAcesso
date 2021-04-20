@@ -4,16 +4,12 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class HashSenha {
+import interfaceLogin.InterfaceHashSenha;
 
-	public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		hashSenhavalidacao(senhaUsuario);
+public class HashSenha implements InterfaceHashSenha {
 
-	}
+	static String senhaUsuario = "123456";
 
-	static String senhaUsuario = "admin";
-
-	
 	/***
 	 * Criptografia para sennha.
 	 * 
@@ -26,7 +22,7 @@ public class HashSenha {
 	 * @throws NoSuchAlgorithmException
 	 * @throws UnsupportedEncodingException
 	 */
-	public static boolean hashSenhavalidacao(String senha)
+	public boolean hashSenhavalidacao(String senha)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		if (senha.equals(senhaUsuario)) {
 			MessageDigest hash = MessageDigest.getInstance("MD5");
@@ -38,15 +34,3 @@ public class HashSenha {
 		}
 	}
 }
-//public static void main(String args []) throws NoSuchAlgorithmException,
-//UnsupportedEncodingException {
-//
-//          String senha = "admin";
-//
-//          MessageDigest algorithm = MessageDigest.getInstance("MD5");
-//          byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
-//
-//          System.out.println(messageDigest);
-//}
-//
-//}

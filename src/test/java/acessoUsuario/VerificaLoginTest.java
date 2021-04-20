@@ -10,8 +10,7 @@ import org.junit.Test;
 		@Test
 		public void testVerificaLogin() {
 			VerificaLogin acesso = new VerificaLogin();
-			String login = "X";
-			//String senha = "2";
+			String login = null;
 			assertTrue(acesso.validacaoLogin(login));
 		}
 	

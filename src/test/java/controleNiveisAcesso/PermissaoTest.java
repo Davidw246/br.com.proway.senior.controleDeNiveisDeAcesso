@@ -31,6 +31,6 @@ public class PermissaoTest {
 		listaPermissoesTeste.add("Registro de ponto");
 		permissao.criaNomePermissao("Registro de ponto");
 
-		assertEquals(permissao.nomeDasPermissoes.get(0), listaPermissoesTeste.get(0));
+		assertEquals(permissao.getNomeDaPermissao(), listaPermissoesTeste.get(0));
 	}
 }
