@@ -12,7 +12,7 @@ public class UsuarioPerfil {
 	 * 
 	 * @param nome
 	 * @param senha
-	 * @return
+	 * @return true boolean
 	 */
 
 	public boolean logarPerfil(String nome, String senha) {
