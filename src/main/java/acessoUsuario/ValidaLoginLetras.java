@@ -1,6 +1,13 @@
 package acessoUsuario;
 
+<<<<<<< HEAD:src/main/java/acessoUsuario/ValidaLoginLetras.java
 public class ValidaLoginLetras {
+=======
+import interfaceLogin.InterfaceValidaLoginLetras;
+
+public class ValidaLoginLetras extends VerificaLogin 
+implements InterfaceValidaLoginLetras {
+>>>>>>> LoginAtualizacao:src/main/java/acessoUsuario/validaLoginLetras.java
 
 	/**
 	 * Verifica caracteres do usuário digitado.
@@ -10,11 +17,11 @@ public class ValidaLoginLetras {
 	 * @param boolean login
 	 * @return loginValido boolean
 	 */
-	public static boolean validaLoginCaracteres(String login) {
+	public boolean validaLoginCaracteres(String login) {
 		boolean loginValido = true;
-		if (login.length() != 10) {
-			loginValido = false;
-		}
+//		if (login.length() != 10) {
+//			loginValido = false;
+//		}
 		if (login.substring(0, 9).matches("[A-Z]*")) {
 			loginValido = false;
 		}
