@@ -3,8 +3,24 @@ package acessoUsuario;
 import java.util.Random;
 
 public class AlteraSenha {
-	String nome = "Claudio";
-	String email = "exemplo@gmail.com";
+	private String nome;
+	private String email;
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	/**
 	 * Envia um e-mail
@@ -17,7 +33,7 @@ public class AlteraSenha {
 	 */
 	public boolean enviarEmail(String email) {
 		boolean verificacaoUsuario;
-		if (this.email.equals(email)) {
+		if (email.equalsIgnoreCase(this.getEmail())) {
 			verificacaoUsuario = true;
 		} else {
 			verificacaoUsuario = false;
@@ -34,7 +50,7 @@ public class AlteraSenha {
 	public boolean verificarUsuario(String email) {
 
 		boolean verificacao;
-		if (this.nome.equals(email)) {
+		if (nome.equalsIgnoreCase(this.getEmail())) {
 			verificacao = true;
 		} else {
 			verificacao = false;
