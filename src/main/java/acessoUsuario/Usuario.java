@@ -1,18 +1,24 @@
 package acessoUsuario;
 
+import java.util.ArrayList;
+
 public class Usuario {
 
 	/**
 	 * 
-	 * Atributos do Usuario
+	 * Atributos do Usuário
 	 */
 	int id;
-	String login;
+	String login = "Vanderlei";
 	String senha;
-	String perfil;
+	String perfil = "Gerente"; // Nome fixo para teste
+	ArrayList<String> listaDasPermissoesDoUsuario = new ArrayList<String>();
 	
+	public Usuario() {
+		
+		}
+
 	public Usuario(int id, String login, String senha, String perfil) {
-		super();
 		this.id = id;
 		this.login = login;
 		this.senha = senha;
@@ -76,11 +82,22 @@ public class Usuario {
 		return perfil;
 	}
 
-	/**
-	 * 
-	 * @param perfil
-	 */
 	public void setPerfil(String perfil) {
 		this.perfil = perfil;
 	}
+
+	/**
+	 * Método que adiciona um nome de Permissão a uma lista de Permissões de
+	 * um Usuário
+	 * 
+	 * @param nomeDaPermissao	Recebe String
+	 */
+	
+	public void adicionaListaDasPermissoesDoUsuario(String nomeDaPermissao) {
+		for (int i = 0; i < listaDasPermissoesDoUsuario.size(); i++) {	
+			listaDasPermissoesDoUsuario.add(nomeDaPermissao);
+		}
+				
+	}
+		
 }

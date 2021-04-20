@@ -26,7 +26,7 @@ public class Permissao implements InterfacePermissao {
 
 	/**
 	 * Um método que cria o nome da permissão
-	 * Verifica se o nome se o nome recebido é nulo ou vazio.
+	 * Verifica se o nome recebido é nulo ou vazio.
 	 * 
 	 * @param nomeDaPermissao	Recebe String
 	 * @return true || false	boolean

@@ -2,11 +2,14 @@ package controleNiveisAcesso;
 
 import java.util.ArrayList;
 
+import acessoUsuario.Usuario;
 import interfaceControleAcesso.InterfacePerfil;
 
 public class Perfil implements InterfacePerfil {
 
 	private String nomeDoPerfil;
+	private String nomeDoLogin;
+
 	ArrayList<String> listaDosPerfis = new ArrayList<String>();
 
 	Permissao permissaoDeAcesso = new Permissao();
@@ -14,7 +17,7 @@ public class Perfil implements InterfacePerfil {
 	/**
 	 * Métodos mágicos/Métodos de acesso
 	 * 
-	 * @return nomeDoPerfil		Tipo String
+	 * @return nomeDoPerfil Tipo String
 	 */
 	public String getNomeDoPerfil() {
 		return nomeDoPerfil;
@@ -22,6 +25,14 @@ public class Perfil implements InterfacePerfil {
 
 	public void setNomeDoPerfil(String nomeDoPerfil) {
 		this.nomeDoPerfil = nomeDoPerfil;
+	}
+
+	public String getNomeDoLogin() {
+		return nomeDoLogin;
+	}
+
+	public void setNomeDoLogin(String nomeDoLogin) {
+		this.nomeDoLogin = nomeDoLogin;
 	}
 
 	/**
@@ -33,9 +44,9 @@ public class Perfil implements InterfacePerfil {
 	 * 
 	 * Adiciona a string (nome do perfil) ao ArrayList (lista de perfis).
 	 * 
-	 * @param nomeDoPerfil		Recebe string
-	 * @param nomeDaPermissao	Recebe string
-	 * @return validacao		Retorna true ou false.
+	 * @param nomeDoPerfil    Recebe string
+	 * @param nomeDaPermissao Recebe string
+	 * @return validacao Retorna true ou false.
 	 */
 	public boolean criaNomePerfil(String nomeDoPerfil, String nomeDaPermissao) {
 		boolean validacao;
@@ -52,4 +63,63 @@ public class Perfil implements InterfacePerfil {
 		}
 		return validacao;
 	}
+
+	/**
+	 * Método que adiciona uma Permissão a um Perfil de Usuário já cadastrado.
+	 * 
+	 * Verifica dentro da lista de Permissões de um Perfil de um Usuário.
+	 * 
+	 * Adiciona Permissão a este Perfil.
+	 * 
+	 * @param nomeDoLogin Recebe String
+	 * @return validacao
+	 */
+	public boolean adicionaPermissaoAPerfilDoUsuarioJaCriado(String nomeDoLogin, String nomeDaPermissao) {
+		Usuario usuario = new Usuario();
+		boolean validacao = false;
+		listaDosPerfis.add("Gerente");
+		if (nomeDoLogin.equalsIgnoreCase(usuario.getLogin())) {
+			for (int i = 0; i < listaDosPerfis.size(); i++) {
+				if (listaDosPerfis.get(i).equalsIgnoreCase(usuario.getPerfil())) {
+					usuario.adicionaListaDasPermissoesDoUsuario(nomeDaPermissao);
+					validacao = true;
+				}
+			}
+		}
+		return validacao;
+	}
+
+	/**
+	 * Método que remove uma Permissão de um Perfil de Usuário já cadastrado.
+	 * 
+	 * Verifica dentro da lista de Permissões de um Perfil de um Usuário.
+	 * 
+	 * Remove uma Permissão específica deste Perfil.
+	 * 
+	 * @param nomeDoLogin     Recebe String
+	 * @param nomeDaPermissao Recebe String
+	 * @return validacao
+	 */
+
+	public boolean removePermissaoDoPerfilDoUsuarioJaCriado(ArrayList<String> listaDasPermissoesDoUsuario, String nomeDoLogin,
+			String nomeDaPermissao) {
+		
+		Usuario usuario = new Usuario();
+		boolean validacao = false;
+		
+		if (nomeDoLogin.equalsIgnoreCase(usuario.getLogin())) {
+			for (int i = 0; i < listaDosPerfis.size(); i++) {
+				if (listaDosPerfis.get(i).equalsIgnoreCase(usuario.getPerfil())) {
+					for (int j = 0; j < listaDasPermissoesDoUsuario.size(); j++) {
+						if (nomeDaPermissao.equalsIgnoreCase(listaDasPermissoesDoUsuario.get(i))) {
+							listaDasPermissoesDoUsuario.remove(i);
+							validacao = true;
+						}
+					}
+				}
+			}
+		}
+		return validacao;
+	}
+
 }

@@ -2,7 +2,11 @@ package controleNiveisAcesso;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
+
+import acessoUsuario.Usuario;
 
 public class PerfilTest {
 
@@ -21,4 +25,35 @@ public class PerfilTest {
 		Perfil nomeDoPerfil = new Perfil();
 		assertFalse(nomeDoPerfil.criaNomePerfil(perfil, permissao));
 	}
+
+	@Test
+	public void testAdicionaPermissaoAPerfilDoUsuarioJaCriado() {
+		String nomeDoLogin = "Vanderlei";
+		String nomeDaPermissao = "Visualizar Cartão Ponto";
+		Perfil perfil = new Perfil();
+		Usuario usuario = new Usuario();
+
+		usuario.setLogin("Vanderlei");
+		usuario.setPerfil("Gerente");
+
+		assertTrue(perfil.adicionaPermissaoAPerfilDoUsuarioJaCriado(nomeDoLogin, nomeDaPermissao));
+	}
+
+	@Test
+	public void testRemovePermissaoAPerfilDoUsuarioJaCriado() {
+		ArrayList<String> listaDasPermissoesDoUsuarioTest = new ArrayList<String>();
+		
+		listaDasPermissoesDoUsuarioTest.add(0, "Visualizar");
+		
+		String nomeDoLogin = "Vanderlei";
+		String nomeDaPermissao = "Visualizar Cartão Ponto";
+		Perfil perfil = new Perfil();
+		Usuario usuario = new Usuario();
+
+		usuario.setLogin("Vanderlei");
+		usuario.setPerfil("Gerente");
+
+		assertTrue(perfil.removePermissaoDoPerfilDoUsuarioJaCriado(listaDasPermissoesDoUsuarioTest, nomeDoLogin, nomeDaPermissao));
+	}
+
 }
