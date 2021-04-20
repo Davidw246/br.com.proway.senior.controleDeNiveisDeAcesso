@@ -1,6 +1,6 @@
 package acessoUsuario;
 
-public class validaLoginLetras {
+public class ValidaLoginLetras {
 
 	/**
 	 * Verifica caracteres do usuário digitado.

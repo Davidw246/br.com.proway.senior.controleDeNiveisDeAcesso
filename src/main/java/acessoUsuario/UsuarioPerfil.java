@@ -1,11 +1,26 @@
 package acessoUsuario;
 
-public class UsuarioPerfil {
+public class UsuarioPerfil implements PerfilInterface {
 
-	String nome = "claudio";
-	String senha = "1234";
+	private String nome;
 
-	Boolean isLogado = false;
+	private String senha;
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	/**
 	 * O método faz a verificação de login do perfil.
@@ -16,10 +31,13 @@ public class UsuarioPerfil {
 	 */
 
 	public boolean logarPerfil(String nome, String senha) {
-		if (nome == "" || senha == "" || nome == null || senha == null) {
+		if (nome.equals("") || senha.equals("")) {
 			return false;
+		} else if (nome.equals(null) || senha.equals(null)) {
+			return false;
+
 		} else {
-			if (this.nome.equalsIgnoreCase(nome) && this.senha.equals(senha)) {
+			if (nome.equalsIgnoreCase(this.getNome()) && senha.equals(this.getSenha())) {
 				return true;
 			} else {
 				return false;
