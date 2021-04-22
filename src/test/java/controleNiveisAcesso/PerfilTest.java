@@ -29,9 +29,11 @@ public class PerfilTest {
 	@Test
 	public void testAdicionaPermissaoAPerfilDoUsuarioJaCriado() {
 		String nomeDoLogin = "Vanderlei";
-		String nomeDaPermissao = "Visualizar Cartão Ponto";
+		String nomeDaPermissao = "Gerente";
 		Perfil perfil = new Perfil();
 		Usuario usuario = new Usuario();
+		
+		perfil.listaDosPerfis.add("Gerente");
 
 		usuario.setLogin("Vanderlei");
 		usuario.setPerfil("Gerente");
@@ -43,13 +45,18 @@ public class PerfilTest {
 	public void testRemovePermissaoAPerfilDoUsuarioJaCriado() {
 		ArrayList<String> listaDasPermissoesDoUsuarioTest = new ArrayList<String>();
 		
-		listaDasPermissoesDoUsuarioTest.add(0, "Visualizar");
-		
 		String nomeDoLogin = "Vanderlei";
-		String nomeDaPermissao = "Visualizar Cartão Ponto";
+		String nomeDaPermissao = "Visualizar";
+		String nomeDoPerfil = "Gerente";
 		Perfil perfil = new Perfil();
 		Usuario usuario = new Usuario();
+		Permissao permissao = new Permissao();
 
+		perfil.listaDosPerfis.add(nomeDoPerfil);
+		permissao.listaDasPermissoes.add(nomeDaPermissao);
+		usuario.adicionaListaDasPermissoesDoUsuario(nomeDaPermissao);
+		listaDasPermissoesDoUsuarioTest.add(nomeDaPermissao);
+		
 		usuario.setLogin("Vanderlei");
 		usuario.setPerfil("Gerente");
 

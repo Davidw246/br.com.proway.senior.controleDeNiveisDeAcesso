@@ -97,7 +97,6 @@ public class Usuario {
 		for (int i = 0; i < listaDasPermissoesDoUsuario.size(); i++) {	
 			listaDasPermissoesDoUsuario.add(nomeDaPermissao);
 		}
-				
 	}
 		
 }

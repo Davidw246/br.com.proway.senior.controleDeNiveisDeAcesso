@@ -77,7 +77,7 @@ public class Perfil implements InterfacePerfil {
 	public boolean adicionaPermissaoAPerfilDoUsuarioJaCriado(String nomeDoLogin, String nomeDaPermissao) {
 		Usuario usuario = new Usuario();
 		boolean validacao = false;
-		listaDosPerfis.add("Gerente");
+		
 		if (nomeDoLogin.equalsIgnoreCase(usuario.getLogin())) {
 			for (int i = 0; i < listaDosPerfis.size(); i++) {
 				if (listaDosPerfis.get(i).equalsIgnoreCase(usuario.getPerfil())) {
