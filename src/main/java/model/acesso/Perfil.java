@@ -15,7 +15,7 @@ public class Perfil implements InterfacePerfil {
 	Permissao permissaoDeAcesso = new Permissao();
 
 	/**
-	 * Métodos mágicos/Métodos de acesso
+	 * Métodos mágicos/Métodos de acesso.
 	 * 
 	 * @return nomeDoPerfil Tipo String
 	 */
