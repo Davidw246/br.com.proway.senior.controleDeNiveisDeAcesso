@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import model.login.ReceberIdCadastro;
+
 /**
  * Testa a entrada de dados.
  * 
@@ -29,7 +31,7 @@ public class RecebeIdCadastroTest {
 		idTest.add(3);
 		idTest.add(4);
 
-		assertTrue(RecebeIdCadastro.EqualsId());
+		assertTrue(ReceberIdCadastro.equalsId());
 		System.out.println();
 		System.out.println("Relação de IDs validados: " + idTest);
 	}
@@ -53,7 +55,7 @@ public class RecebeIdCadastroTest {
 		idTestInvalido.add(3);
 		idTestInvalido.add(4);
 
-		assertTrue(RecebeIdCadastro.ValidaId(idInvalido));
+		assertTrue(ReceberIdCadastro.validarId(idInvalido));
 		System.out.println();
 		System.out.println("Relação de IDs com pelo menos uma informação 'false': " + idTestInvalido);
 		System.out.println("O Id nulo se encontra na posição: " + idTestInvalido.indexOf(null));
@@ -109,7 +111,7 @@ public class RecebeIdCadastroTest {
 		nomeTestValido.add("Vanderlei");
 		nomeTestValido.add("Elton");
 
-		assertTrue(RecebeIdCadastro.ValidaNome(nomeValido));
+		assertTrue(ReceberIdCadastro.validarNome(nomeValido));
 		System.out.println("Relação de nomes true: " + nomeTestValido);
 	}
 	
@@ -134,7 +136,7 @@ public class RecebeIdCadastroTest {
 		nomeTestInvalido.add(null);
 		nomeTestInvalido.add("Elton");
 
-		assertTrue(RecebeIdCadastro.ValidaNome(nomeInvalido));
+		assertTrue(ReceberIdCadastro.validarNome(nomeInvalido));
 		System.out.println("Relação de nomes false: " + nomeTestInvalido);
 		System.out.println("O nome nulo se encontra na posição: " + nomeTestInvalido.indexOf(null));
 	}
@@ -153,9 +155,9 @@ public class RecebeIdCadastroTest {
 		boolean nomeValido;
 		nomeValido = true;
 		
-		assertEquals(RecebeIdCadastro.validaDadosNome(nomeTestValido), nomeValido);
+		assertEquals(ReceberIdCadastro.validarDadosNome(nomeTestValido), nomeValido);
 		System.out.println();
-		System.out.println("O nome: "+ nomeTestValido + " é " + RecebeIdCadastro.validaDadosNome(nomeTestValido));
+		System.out.println("O nome: "+ nomeTestValido + " é " + ReceberIdCadastro.validarDadosNome(nomeTestValido));
 	}
 	
 	/**
@@ -178,7 +180,7 @@ public class RecebeIdCadastroTest {
 		emailTestValido.add("vanderlei@companyname.com");
 		emailTestValido.add("elton@companyname.com");
 
-		assertTrue(RecebeIdCadastro.ValidaEmail(emailValido));
+		assertTrue(ReceberIdCadastro.validarEmail(emailValido));
 		System.out.println();
 		System.out.println("Relação de e-mails true: " + emailTestValido);
 		System.out.println();
@@ -207,7 +209,7 @@ public class RecebeIdCadastroTest {
 		emailTestInvalido.add("vanderlei@companyname.com");
 		emailTestInvalido.add(null);
 
-		assertTrue(RecebeIdCadastro.ValidaEmail(emailInvalido));
+		assertTrue(ReceberIdCadastro.validarEmail(emailInvalido));
 		System.out.println();
 		System.out.println("Relação de e-mails true: " + emailTestInvalido);
 		System.out.println("O e-mail nulo se encontra na posição: " + emailTestInvalido.indexOf(null));
@@ -226,8 +228,8 @@ public class RecebeIdCadastroTest {
 		boolean emailValido;
 		emailValido = true;
 		
-		assertEquals(RecebeIdCadastro.isValidEmail(emailTestValido), emailValido);
-		System.out.println("O email: "+ emailTestValido + " é " + RecebeIdCadastro.isValidEmail(emailTestValido));
+		assertEquals(ReceberIdCadastro.isValidEmail(emailTestValido), emailValido);
+		System.out.println("O email: "+ emailTestValido + " é " + ReceberIdCadastro.isValidEmail(emailTestValido));
 	}
 	
 	/**
@@ -241,8 +243,8 @@ public class RecebeIdCadastroTest {
 		boolean emailInvalido;
 		emailInvalido = false;
 		
-		assertEquals(RecebeIdCadastro.isValidEmail(emailTestInvalido), emailInvalido);
-		System.out.println("O email: "+ emailTestInvalido + " é " + RecebeIdCadastro.isValidEmail(emailTestInvalido));
+		assertEquals(ReceberIdCadastro.isValidEmail(emailTestInvalido), emailInvalido);
+		System.out.println("O email: "+ emailTestInvalido + " é " + ReceberIdCadastro.isValidEmail(emailTestInvalido));
 	}
 
 	public boolean isIdValido() {

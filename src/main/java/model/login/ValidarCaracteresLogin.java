@@ -1,9 +1,9 @@
-package acessoUsuario;
+package model.login;
 
-import interfaceLogin.InterfaceValidaLoginLetras;
+import model.interfaces.InterfaceValidarCaracteresLogin;
 
-public class ValidaLoginLetras extends VerificaLogin 
-implements InterfaceValidaLoginLetras {
+public class ValidarCaracteresLogin extends VerificarLogin 
+implements InterfaceValidarCaracteresLogin {
 
 	/**
 	 * Verifica caracteres do usuário digitado.
@@ -13,7 +13,7 @@ implements InterfaceValidaLoginLetras {
 	 * @param boolean login
 	 * @return loginValido boolean
 	 */
-	public boolean validaLoginCaracteres(String login) {
+	public boolean validarCaracteresLogin(String login) {
 		boolean loginValido = true;
 //		if (login.length() != 10) {
 //			loginValido = false;

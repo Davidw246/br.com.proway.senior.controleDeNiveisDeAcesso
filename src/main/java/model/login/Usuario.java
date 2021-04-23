@@ -1,4 +1,4 @@
-package acessoUsuario;
+package model.login;
 
 import java.util.ArrayList;
 
@@ -93,7 +93,7 @@ public class Usuario {
 	 * @param nomeDaPermissao	Recebe String
 	 */
 	
-	public void adicionaListaDasPermissoesDoUsuario(String nomeDaPermissao) {
+	public void adicionarNomePermissaoNaListaPermissoes(String nomeDaPermissao) {
 		for (int i = 0; i < listaDasPermissoesDoUsuario.size(); i++) {	
 			listaDasPermissoesDoUsuario.add(nomeDaPermissao);
 		}

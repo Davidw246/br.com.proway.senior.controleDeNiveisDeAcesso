@@ -1,6 +1,6 @@
-package acessoUsuario;
+package model.interfaces;
 
-public interface AlteraSenhaInterface {
+public interface AlterarSenhaInterface {
 
 	public boolean enviarEmail(String email);
 

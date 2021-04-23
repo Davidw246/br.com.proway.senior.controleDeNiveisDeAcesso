@@ -1,9 +1,9 @@
-package interfaceLogin;
+package model.interfaces;
 
 public interface InterfaceAcessoUsuario {
 	
-	public boolean validacaoLogin(String login);
-	public boolean validacaoSenha(String senha);
+	public boolean validarLogin(String login);
+	public boolean validarSenha(String senha);
 	public boolean limitadorLogin(String login);
 	public boolean limitadorSenha(String senha);
 

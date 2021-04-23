@@ -1,10 +1,10 @@
-package acessoUsuario;
+package model.login;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import interfaceLogin.InterfaceHashSenha;
+import model.interfaces.InterfaceHashSenha;
 
 public class HashSenha implements InterfaceHashSenha {
 
@@ -22,7 +22,7 @@ public class HashSenha implements InterfaceHashSenha {
 	 * @throws NoSuchAlgorithmException
 	 * @throws UnsupportedEncodingException
 	 */
-	public boolean hashSenhavalidacao(String senha)
+	public boolean validarHashSenha(String senha)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		if (senha.equals(senhaUsuario)) {
 			MessageDigest hash = MessageDigest.getInstance("MD5");

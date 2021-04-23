@@ -6,7 +6,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import acessoUsuario.VerificaLogin;
+import model.login.HashSenha;
+import model.login.VerificarLogin;
 
 public class HashSenhaTest {
 	

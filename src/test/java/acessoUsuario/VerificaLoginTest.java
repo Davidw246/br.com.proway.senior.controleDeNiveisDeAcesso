@@ -5,61 +5,63 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import model.login.VerificarLogin;
+
 	public class VerificaLoginTest {
 
 		@Test
 		public void testVerificaLogin() {
-			VerificaLogin acesso = new VerificaLogin();
+			VerificarLogin acesso = new VerificarLogin();
 			String login = "claudio";
 			acesso.setLogin(login);
-			assertTrue(acesso.validacaoLogin(acesso.getLogin()));
+			assertTrue(acesso.validarLogin(acesso.getLogin()));
 		}
 	
 	@Test
 	public void testVerificaLoginFalse() {
-		VerificaLogin acesso = new VerificaLogin();
+		VerificarLogin acesso = new VerificarLogin();
 		String login = "Claudio";
-		assertFalse(acesso.validacaoLogin(login));
+		assertFalse(acesso.validarLogin(login));
 	}
 	
 	@Test
 	public void testVerificaSenha() {
-		VerificaLogin acessoSenha = new VerificaLogin();
+		VerificarLogin acessoSenha = new VerificarLogin();
 		String senha = "123456789";
 		acessoSenha.setSenha(senha);
-		assertTrue(acessoSenha.validacaoSenha(acessoSenha.getSenha()));
+		assertTrue(acessoSenha.validarSenha(acessoSenha.getSenha()));
 	}
 	
 	@Test
 	public void testVerificaSenhaFalse() {
-		VerificaLogin acessoSenha = new VerificaLogin();
+		VerificarLogin acessoSenha = new VerificarLogin();
 		String senha = "1";
-		assertFalse(acessoSenha.validacaoSenha(senha));
+		assertFalse(acessoSenha.validarSenha(senha));
 	}
 	
 	@Test
 	public void testLimitadorLogin() {
-		VerificaLogin limitadorLogin = new VerificaLogin();
+		VerificarLogin limitadorLogin = new VerificarLogin();
 		String login = "adm";
 		assertTrue(limitadorLogin.limitadorLogin(login));
 	}
 	
 	@Test
 	public void testLimitadorLoginFalse() {
-		VerificaLogin limitadorLogin = new VerificaLogin();
+		VerificarLogin limitadorLogin = new VerificarLogin();
 		String login = "admmmmmmmmmmmmmmmmmmmmmmmmm";
 		assertFalse(limitadorLogin.limitadorLogin(login));
 	}
 	
 	@Test
 	public void testLimitadorSenha() {
-		VerificaLogin limitadorSenha = new VerificaLogin();
+		VerificarLogin limitadorSenha = new VerificarLogin();
 		String senha = "123";
 		assertTrue(limitadorSenha.limitadorSenha(senha));
 	}
 	
 	public void testLimitadorSenhaFalse() {
-		VerificaLogin limitadorSenha = new VerificaLogin();
+		VerificarLogin limitadorSenha = new VerificarLogin();
 		String senha = "0000000000000000000000000000";
 		assertFalse(limitadorSenha.limitadorSenha(senha));
 	}

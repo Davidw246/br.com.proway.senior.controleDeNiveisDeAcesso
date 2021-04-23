@@ -1,8 +1,8 @@
-package acessoUsuario;
+package model.login;
 
-import interfaceLogin.InterfaceAcessoUsuario;
+import model.interfaces.InterfaceAcessoUsuario;
 
-public class VerificaLogin implements InterfaceAcessoUsuario {
+public class VerificarLogin implements InterfaceAcessoUsuario {
 
 	String login;
 	String senha;
@@ -18,7 +18,7 @@ public class VerificaLogin implements InterfaceAcessoUsuario {
 	 * @return
 	 */
 
-	public boolean validacaoLogin(String login) {
+	public boolean validarLogin(String login) {
 		if (login.equalsIgnoreCase(this.getLogin())) {
 			return true;
 		} else {
@@ -34,7 +34,7 @@ public class VerificaLogin implements InterfaceAcessoUsuario {
 	 * @param String senha
 	 * @return
 	 */
-	public boolean validacaoSenha(String senha) {
+	public boolean validarSenha(String senha) {
 		if (senha.equalsIgnoreCase(this.getSenha())) {
 			return true;
 		} else {
@@ -91,4 +91,5 @@ public class VerificaLogin implements InterfaceAcessoUsuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
 }

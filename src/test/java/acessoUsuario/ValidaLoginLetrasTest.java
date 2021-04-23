@@ -5,28 +5,28 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import acessoUsuario.ValidaLoginLetras;
+import model.login.ValidarCaracteresLogin;
 
 public class ValidaLoginLetrasTest {
 
 	@Test
 	public void testValidaLoginLetras() {
-		ValidaLoginLetras loginCaracteres = new ValidaLoginLetras();
+		ValidarCaracteresLogin loginCaracteres = new ValidarCaracteresLogin();
 		String login = "EltonDavid";
-		assertTrue(loginCaracteres.validaLoginCaracteres(login));
+		assertTrue(loginCaracteres.validarCaracteresLogin(login));
 	}
 	
 	@Test
 	public void testValidaLoginLetrasCaracter() {
-		ValidaLoginLetras loginCaracteres = new ValidaLoginLetras();
+		ValidarCaracteresLogin loginCaracteres = new ValidarCaracteresLogin();
 		String login = "1234567891";
-		assertFalse(loginCaracteres.validaLoginCaracteres(login));
+		assertFalse(loginCaracteres.validarCaracteresLogin(login));
 	}
 	
 	@Test
 	public void testValidaLoginLetrasMenorQueDez() {
-		ValidaLoginLetras loginCaracteres = new ValidaLoginLetras();
+		ValidarCaracteresLogin loginCaracteres = new ValidarCaracteresLogin();
 		String login = "EltonDavi";
-		assertFalse(loginCaracteres.validaLoginCaracteres(login));
+		assertFalse(loginCaracteres.validarCaracteresLogin(login));
 	}
 }

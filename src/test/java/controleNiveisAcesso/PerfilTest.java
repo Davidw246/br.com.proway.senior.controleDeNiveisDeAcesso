@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import acessoUsuario.Usuario;
+import model.acesso.Perfil;
+import model.acesso.Permissao;
+import model.login.Usuario;
 
 public class PerfilTest {
 
@@ -15,7 +17,7 @@ public class PerfilTest {
 		String perfil = "Gerente de RH";
 		String permissao = "Visualizar";
 		Perfil nomeDoPerfil = new Perfil();
-		assertTrue(nomeDoPerfil.criaNomePerfil(perfil, permissao));
+		assertTrue(nomeDoPerfil.criarNomePerfil(perfil, permissao));
 	}
 
 	@Test
@@ -23,7 +25,7 @@ public class PerfilTest {
 		String perfil = "";
 		String permissao = "";
 		Perfil nomeDoPerfil = new Perfil();
-		assertFalse(nomeDoPerfil.criaNomePerfil(perfil, permissao));
+		assertFalse(nomeDoPerfil.criarNomePerfil(perfil, permissao));
 	}
 
 	@Test
@@ -38,7 +40,7 @@ public class PerfilTest {
 		usuario.setLogin("Vanderlei");
 		usuario.setPerfil("Gerente");
 
-		assertTrue(perfil.adicionaPermissaoAPerfilDoUsuarioJaCriado(nomeDoLogin, nomeDaPermissao));
+		assertTrue(perfil.adicionarPermissaoAPerfilDoUsuarioCadastrado(nomeDoLogin, nomeDaPermissao));
 	}
 
 	@Test
@@ -54,13 +56,13 @@ public class PerfilTest {
 
 		perfil.listaDosPerfis.add(nomeDoPerfil);
 		permissao.listaDasPermissoes.add(nomeDaPermissao);
-		usuario.adicionaListaDasPermissoesDoUsuario(nomeDaPermissao);
+		usuario.adicionarNomePermissaoNaListaPermissoes(nomeDaPermissao);
 		listaDasPermissoesDoUsuarioTest.add(nomeDaPermissao);
 		
 		usuario.setLogin("Vanderlei");
 		usuario.setPerfil("Gerente");
 
-		assertTrue(perfil.removePermissaoDoPerfilDoUsuarioJaCriado(listaDasPermissoesDoUsuarioTest, nomeDoLogin, nomeDaPermissao));
+		assertTrue(perfil.removerPermissaoDoPerfilDoUsuarioCadastrado(listaDasPermissoesDoUsuarioTest, nomeDoLogin, nomeDaPermissao));
 	}
 
 }

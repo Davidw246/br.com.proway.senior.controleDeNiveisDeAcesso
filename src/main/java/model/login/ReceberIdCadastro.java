@@ -1,4 +1,4 @@
-package acessoUsuario;
+package model.login;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
  * 
  *
  */
-	public class RecebeIdCadastro {
+	public class ReceberIdCadastro {
 		final private static ArrayList<Integer> id = new ArrayList<Integer>(); // Visível apenas nesta classe
 		final private static ArrayList<String> nome = new ArrayList<String>(); // Visível apenas nesta classe
 		final private static ArrayList<String> email = new ArrayList<String>(); // Visível apenas nesta classe
@@ -30,7 +30,7 @@ import java.util.regex.Pattern;
 	 * @param id
 	 * @return id
 	 */
-	public static ArrayList<Integer> PopulaDadosId(ArrayList<Integer> id) {
+	public static ArrayList<Integer> popularDadosId(ArrayList<Integer> id) {
 		// Popula os dados id
 		id.add(0);
 		id.add(1);
@@ -44,7 +44,7 @@ import java.util.regex.Pattern;
 		return id;
 	}
 
-	public static void PopulaDadosNome(ArrayList<String> nome) {
+	public static void popularDadosNome(ArrayList<String> nome) {
 		// Popula os dados nome
 		nome.add("Guilherme");
 		nome.add("David W");
@@ -57,7 +57,7 @@ import java.util.regex.Pattern;
 		return nome;
 	}
 
-	public static void PopulaDadosEmail(ArrayList<String> email) {
+	public static void popularDadosEmail(ArrayList<String> email) {
 		// Popula os dados e-mail
 		email.add("guilherme@companyname.com");
 		email.add("david.w@companyname.com");
@@ -71,7 +71,7 @@ import java.util.regex.Pattern;
 	}
 
 	public static void setListasIguais(boolean listasIguais) {
-		RecebeIdCadastro.listasIguais = listasIguais;
+		ReceberIdCadastro.listasIguais = listasIguais;
 	}
 	
 	/**
@@ -80,9 +80,9 @@ import java.util.regex.Pattern;
 	 * 
 	 * 
 	 */
-	public static boolean EqualsId() {
+	public static boolean equalsId() {
 		ArrayList<Integer> listaIdRecebida = new ArrayList<Integer>();
-		listaIdRecebida = PopulaDadosId(getId());
+		listaIdRecebida = popularDadosId(getId());
 		ArrayList<Integer> comparaListaId = new ArrayList<Integer>(); // lista genérica simulando os valores esperados
 		comparaListaId.add(0);
 		comparaListaId.add(1);
@@ -104,7 +104,7 @@ import java.util.regex.Pattern;
 	 * @param boolean b
 	 * @return idValido
 	 */
-	public static boolean ValidaId(boolean b) {
+	public static boolean validarId(boolean b) {
 		boolean idValido = true;
 		for (int i = 0; i < getId().size(); i++) {
 			if (getId().contains(null)) {
@@ -122,7 +122,7 @@ import java.util.regex.Pattern;
 	 * @param boolean b
 	 * @return nomeValido
 	 */
-	public static boolean ValidaNome(boolean b) {
+	public static boolean validarNome(boolean b) {
 		boolean nomeValido = true;
 		for (int i = 0; i < getNome().size(); i++) {
 			if (getNome().contains(null)) {
@@ -141,7 +141,7 @@ import java.util.regex.Pattern;
 	 * @return dadosValidos
 	 * 
 	 */
-	public static boolean validaDadosNome(String nome) {
+	public static boolean validarDadosNome(String nome) {
 		boolean dadosValidos = false;
 		for (int i = 0; i < nome.length(); i++) {
 			if (nome.matches("[a-zA-Z]{1,}")) {
@@ -151,6 +151,7 @@ import java.util.regex.Pattern;
 		return dadosValidos;
 	}
 
+	// Verificar método duplicado?
 	/**
 	 * O método ValidaEmail verifica se os endereços de e-mail dos colaboradores são
 	 * válidos e lista a relação na tela.
@@ -158,16 +159,16 @@ import java.util.regex.Pattern;
 	 * @param boolean b
 	 * @return emailValido
 	 */
-	public static boolean ValidaEmail(boolean b) {
-		boolean emailValido = true;
-		for (int i = 0; i < email.size(); i++) {
-			if (email.contains(null)) {
-				emailValido = false;
-			}
-			System.out.println("Relação de e-mails dos colaboradores recebidos: " + email);
-		}
-		return emailValido;
-	}
+//	public static boolean validarEmail(boolean b) {
+//		boolean emailValido = true;
+//		for (int i = 0; i < email.size(); i++) {
+//			if (email.contains(null)) {
+//				emailValido = false;
+//			}
+//			System.out.println("Relação de e-mails dos colaboradores recebidos: " + email);
+//		}
+//		return emailValido;
+//	}
 
 	/**
 	 * Verifica se os endereços de e-mai foram cadastrados corretamente ou se
@@ -182,16 +183,16 @@ import java.util.regex.Pattern;
 	 * 
 	 * 
 	 */
-	public static boolean isValidEmail(String email) {
-		boolean isValidEmail = false;
+	public static boolean validarEmail(String email) {
+		boolean emailValido = false;
 		if (email != null && email.length() > 0) {
-			String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"; // 
-			Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+			String expressao = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"; // 
+			Pattern pattern = Pattern.compile(expressao, Pattern.CASE_INSENSITIVE);
 			Matcher matcher = pattern.matcher(email);
 			if (matcher.matches()) {
-				isValidEmail = true;
+				emailValido = true;
 			}
 		}
-		return isValidEmail;
+		return emailValido;
 	}
 }

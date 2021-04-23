@@ -1,4 +1,6 @@
-package acessoUsuario;
+package model.acesso;
+
+import model.interfaces.PerfilInterface;
 
 public class UsuarioPerfil implements PerfilInterface {
 

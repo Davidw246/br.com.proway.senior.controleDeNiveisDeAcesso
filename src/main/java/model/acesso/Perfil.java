@@ -1,9 +1,9 @@
-package controleNiveisAcesso;
+package model.acesso;
 
 import java.util.ArrayList;
 
-import acessoUsuario.Usuario;
-import interfaceControleAcesso.InterfacePerfil;
+import model.interfaces.InterfacePerfil;
+import model.login.Usuario;
 
 public class Perfil implements InterfacePerfil {
 
@@ -48,13 +48,13 @@ public class Perfil implements InterfacePerfil {
 	 * @param nomeDaPermissao Recebe string
 	 * @return validacao Retorna true ou false.
 	 */
-	public boolean criaNomePerfil(String nomeDoPerfil, String nomeDaPermissao) {
+	public boolean criarNomePerfil(String nomeDoPerfil, String nomeDaPermissao) {
 		boolean validacao;
 
 		if (nomeDoPerfil.equals("") || nomeDoPerfil.equals(null)) {
 			validacao = false;
 		} else {
-			permissaoDeAcesso.escolhaDaPermissao(nomeDaPermissao);
+			permissaoDeAcesso.escolherPermissao(nomeDaPermissao);
 
 			setNomeDoPerfil(nomeDoPerfil);
 			listaDosPerfis.add(nomeDoPerfil);
@@ -74,14 +74,14 @@ public class Perfil implements InterfacePerfil {
 	 * @param nomeDoLogin Recebe String
 	 * @return validacao
 	 */
-	public boolean adicionaPermissaoAPerfilDoUsuarioJaCriado(String nomeDoLogin, String nomeDaPermissao) {
+	public boolean adicionarPermissaoAPerfilDoUsuarioCadastrado(String nomeDoLogin, String nomeDaPermissao) {
 		Usuario usuario = new Usuario();
 		boolean validacao = false;
 		
 		if (nomeDoLogin.equalsIgnoreCase(usuario.getLogin())) {
 			for (int i = 0; i < listaDosPerfis.size(); i++) {
 				if (listaDosPerfis.get(i).equalsIgnoreCase(usuario.getPerfil())) {
-					usuario.adicionaListaDasPermissoesDoUsuario(nomeDaPermissao);
+					usuario.adicionarNomePermissaoNaListaPermissoes(nomeDaPermissao);
 					validacao = true;
 				}
 			}
@@ -101,7 +101,7 @@ public class Perfil implements InterfacePerfil {
 	 * @return validacao
 	 */
 
-	public boolean removePermissaoDoPerfilDoUsuarioJaCriado(ArrayList<String> listaDasPermissoesDoUsuario, String nomeDoLogin,
+	public boolean removerPermissaoDoPerfilDoUsuarioCadastrado(ArrayList<String> listaDasPermissoesDoUsuario, String nomeDoLogin,
 			String nomeDaPermissao) {
 		
 		Usuario usuario = new Usuario();

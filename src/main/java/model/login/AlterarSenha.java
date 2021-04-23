@@ -1,8 +1,8 @@
-package acessoUsuario;
+package model.login;
 
 import java.util.Random;
 
-public class AlteraSenha {
+public class AlterarSenha {
 	private String nome;
 	private String email;
 

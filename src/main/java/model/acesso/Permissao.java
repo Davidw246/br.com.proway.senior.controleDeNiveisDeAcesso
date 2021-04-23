@@ -1,8 +1,8 @@
-package controleNiveisAcesso;
+package model.acesso;
 
 import java.util.ArrayList;
 
-import interfaceControleAcesso.InterfacePermissao;
+import model.interfaces.InterfacePermissao;
 
 public class Permissao implements InterfacePermissao {
 
@@ -31,7 +31,7 @@ public class Permissao implements InterfacePermissao {
 	 * @param nomeDaPermissao	Recebe String
 	 * @return true || false	boolean
 	 */
-	public boolean criaNomePermissao(String nomeDaPermissao) {
+	public boolean criarNomePermissao(String nomeDaPermissao) {
 		if (nomeDaPermissao.equals("") || nomeDaPermissao.equals(null)) {
 			return false;
 		} else {
@@ -49,7 +49,7 @@ public class Permissao implements InterfacePermissao {
 	 * @param nomeDaPermissao	Recebe String
 	 * @return true || false	boolean
 	 */
-	public String escolhaDaPermissao(String nomeDaPermissao) {
+	public String escolherPermissao(String nomeDaPermissao) {
 		String validacao = "";
 		for (int i = 0; i < listaDasPermissoes.size(); i++) {
 			if (nomeDaPermissao.equalsIgnoreCase(listaDasPermissoes.get(i))) {
