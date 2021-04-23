@@ -65,7 +65,7 @@ public class AlteraSenha {
 	 * 
 	 * @return Código digitado pelo usuário
 	 */
-	public static int solicitarCodigo() {
+	public int solicitarCodigo() {
 		System.out.print("Código verificador de 5 digitos: ");
 		int codigo = 12345;
 		return codigo;

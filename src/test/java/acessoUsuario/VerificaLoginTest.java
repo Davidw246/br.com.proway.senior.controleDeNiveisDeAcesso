@@ -10,8 +10,9 @@ import org.junit.Test;
 		@Test
 		public void testVerificaLogin() {
 			VerificaLogin acesso = new VerificaLogin();
-			String login = null;
-			assertTrue(acesso.validacaoLogin(login));
+			String login = "claudio";
+			acesso.setLogin(login);
+			assertTrue(acesso.validacaoLogin(acesso.getLogin()));
 		}
 	
 	@Test
@@ -24,8 +25,9 @@ import org.junit.Test;
 	@Test
 	public void testVerificaSenha() {
 		VerificaLogin acessoSenha = new VerificaLogin();
-		String senha = "123";
-		assertTrue(acessoSenha.validacaoSenha(senha));
+		String senha = "123456789";
+		acessoSenha.setSenha(senha);
+		assertTrue(acessoSenha.validacaoSenha(acessoSenha.getSenha()));
 	}
 	
 	@Test

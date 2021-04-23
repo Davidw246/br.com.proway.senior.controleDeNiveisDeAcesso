@@ -3,16 +3,16 @@ package acessoUsuario;
 import interfaceLogin.InterfaceAcessoUsuario;
 
 public class VerificaLogin implements InterfaceAcessoUsuario {
-	
-	private String login;
-	private String senha;
 
-	
+	String login;
+	String senha;
+
 	/***
 	 * Verifica se usuário existe.
 	 * 
 	 * Faz validação com banco de dados se usuário já existe no sistema.
-	 * @param login2 
+	 * 
+	 * @param login2
 	 * 
 	 * @param String login
 	 * @return
@@ -25,8 +25,7 @@ public class VerificaLogin implements InterfaceAcessoUsuario {
 			return false;
 		}
 	}
-	
-	
+
 	/***
 	 * Verifica se senha existe.
 	 * 
@@ -42,12 +41,12 @@ public class VerificaLogin implements InterfaceAcessoUsuario {
 			return false;
 		}
 	}
-	
+
 	/***
 	 * Verifica tamanho do usuário digitado.
 	 * 
-	 * Faz validação do tamanho da String do usuário que foi digitado e informa
-	 * se esta valido ou não..
+	 * Faz validação do tamanho da String do usuário que foi digitado e informa se
+	 * esta valido ou não..
 	 * 
 	 * @param String login
 	 * @return
@@ -59,13 +58,12 @@ public class VerificaLogin implements InterfaceAcessoUsuario {
 			return false;
 		}
 	}
-	
-	
+
 	/***
 	 * Verifica tamanho do senha digitado.
 	 * 
-	 * Faz validação do tamanho da String do senha que foi digitado e informa
-	 * se esta valido ou não..
+	 * Faz validação do tamanho da String do senha que foi digitado e informa se
+	 * esta valido ou não..
 	 * 
 	 * @param String senha
 	 * @return
@@ -82,16 +80,13 @@ public class VerificaLogin implements InterfaceAcessoUsuario {
 		return login;
 	}
 
-
 	public void setLogin(String login) {
 		this.login = login;
 	}
 
-
 	public String getSenha() {
 		return senha;
 	}
-
 
 	public void setSenha(String senha) {
 		this.senha = senha;
