@@ -10,7 +10,7 @@ public class Perfil implements InterfacePerfil {
 	private String nomeDoPerfil;
 	private String nomeDoLogin;
 
-	ArrayList<String> listaDosPerfis = new ArrayList<String>();
+	public ArrayList<String> listaDosPerfis = new ArrayList<String>();
 
 	Permissao permissaoDeAcesso = new Permissao();
 

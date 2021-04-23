@@ -8,7 +8,7 @@ import model.interfaces.InterfaceHashSenha;
 
 public class HashSenha implements InterfaceHashSenha {
 
-	static String senhaUsuario = "123456";
+	public String senhaUsuario = "123456";
 
 	/***
 	 * Criptografia para sennha.

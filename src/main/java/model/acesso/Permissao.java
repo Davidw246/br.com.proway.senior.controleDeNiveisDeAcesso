@@ -7,7 +7,7 @@ import model.interfaces.InterfacePermissao;
 public class Permissao implements InterfacePermissao {
 
 	private String nomeDaPermissao;
-	ArrayList<String> listaDasPermissoes = new ArrayList<String>();
+	public ArrayList<String> listaDasPermissoes = new ArrayList<String>();
 	
 	/**
 	 * Métodos de acesso
