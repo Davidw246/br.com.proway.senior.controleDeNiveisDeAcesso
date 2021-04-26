@@ -1,29 +1,7 @@
 package model.acesso;
 
-import java.util.ArrayList;
-
-import model.interfaces.InterfacePermissao;
-
-public class Permissao implements InterfacePermissao {
-
-	private String nomeDaPermissao;
-	public ArrayList<String> listaDasPermissoes = new ArrayList<String>();
+public class PermissaoDAO {
 	
-	/**
-	 * Métodos de acesso
-	 * 
-	 * Nome da permissão do tipo String
-	 * 
-	 * @return nomeDaPermissao	String
-	 */
-	public String getNomeDaPermissao() {
-		return nomeDaPermissao;
-	}
-
-	public void setNomeDaPermissao(String nomeDaPermissao) {
-		this.nomeDaPermissao = nomeDaPermissao;
-	}
-
 	/**
 	 * Um método que cria o nome da permissão
 	 * Verifica se o nome recebido é nulo ou vazio.
@@ -73,4 +51,5 @@ public class Permissao implements InterfacePermissao {
 		}
 		return validacao;
 	}
+
 }

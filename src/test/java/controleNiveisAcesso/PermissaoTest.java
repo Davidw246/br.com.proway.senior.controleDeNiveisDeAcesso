@@ -6,27 +6,27 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import model.acesso.Permissao;
+import model.acesso.PermissaoModel;
 
 public class PermissaoTest {
 
 	@Test
 	public void testCriaNomePermissao() {
 		String permissao = "Visualizar";
-		Permissao nomeDaPermissao = new Permissao();
+		PermissaoModel nomeDaPermissao = new PermissaoModel();
 		assertTrue(nomeDaPermissao.criarNomePermissao(permissao));
 	}
 
 	@Test
 	public void testCriaNomePermissaoFalse() {
 		String permissao = "";
-		Permissao nomeDaPermissao = new Permissao();
+		PermissaoModel nomeDaPermissao = new PermissaoModel();
 		assertFalse(nomeDaPermissao.criarNomePermissao(permissao));
 	}
 
 	@Test
 	public void testEscolhaDaPermissao() {
-		Permissao permissao = new Permissao();
+		PermissaoModel permissao = new PermissaoModel();
 
 		ArrayList<String> listaPermissoesTeste = new ArrayList<String>();
 
