@@ -9,6 +9,8 @@ public interface InterfacePermissaoDAO {
 	
 	public void deletarPermissao(PermissaoModel permissaoEscolhida);
 	
+	
+	// rever
 //	public void atribuirPermissaoAoUsuario(Usuario usuario, Integer idDaPermissao);
 	
 }
