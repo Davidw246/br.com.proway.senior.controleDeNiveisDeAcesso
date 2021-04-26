@@ -1,55 +1,67 @@
 package model.acesso;
 
-public class PermissaoDAO {
-	
-	/**
-	 * Um método que cria o nome da permissão
-	 * Verifica se o nome recebido é nulo ou vazio.
-	 * 
-	 * @param nomeDaPermissao	Recebe String
-	 * @return true || false	boolean
-	 */
-	public boolean criarNomePermissao(String nomeDaPermissao) {
-		if (nomeDaPermissao.equals("") || nomeDaPermissao.equals(null)) {
-			return false;
-		} else {
-			setNomeDaPermissao(nomeDaPermissao);
-			listaDasPermissoes.add(nomeDaPermissao);
-			return true;
-		}
-	}
-	
-	/**
-	 * Método que adiciona um nome de Permissão a uma lista de Permissões de
-	 * um Usuário
-	 * 
-	 * @param nomeDaPermissao	Recebe String
-	 */
-	
-//	public void adicionarNomePermissaoNaListaPermissoes(String nomeDaPermissao) {
-//		for (int i = 0; i < listaDasPermissoesDoUsuario.size(); i++) {	
-//			listaDasPermissoesDoUsuario.add(nomeDaPermissao);
-//		}
-//	}
+import java.util.ArrayList;
+
+import controller.interfaces.InterfacePermissaoDAO;
+
+/**
+ * Classe PermissaoDao
+ * 
+ * Classe que implementa a interface em relação com o banco de dados referentes
+ * as possiveis permissões do usuario
+ * 
+ */
+
+public class PermissaoDAO implements InterfacePermissaoDAO {
+
+	ArrayList<PermissaoModel> listaDePermissoesCriadas;
 
 	/**
-	 * Método que retorna uma String com a escolha da permissao
+	 * Método criarPermissao
 	 * 
-	 * Valida se o nome da permissao esta dentro do Array de permissoes
+	 * Método responsável por inserir uma permissao de banco de dados conforme
+	 * atribuito associadado
 	 * 
-	 * @param nomeDaPermissao	Recebe String
-	 * @return true || false	boolean
+	 * @param nomeDaPermissao String
+	 * @return PermissaoModel
+	 * 
 	 */
-	public String escolherPermissao(String nomeDaPermissao) {
-		String validacao = "";
-		for (int i = 0; i < listaDasPermissoes.size(); i++) {
-			if (nomeDaPermissao.equalsIgnoreCase(listaDasPermissoes.get(i))) {
-				validacao = nomeDaPermissao;
-			} else {
-				validacao = "Você não tem acesso";
-			}
-		}
-		return validacao;
+	public PermissaoModel criarPermissao(Integer idDaPermissao, String nomeDaPermissao) {
+		PermissaoModel permissaoModel = new PermissaoModel(idDaPermissao, nomeDaPermissao);
+
+		listaDePermissoesCriadas.add(permissaoModel);
+
+		return permissaoModel;
 	}
+
+	/**
+	 * Método deletarPermissao
+	 * 
+	 * Método responsável por deletar uma permissao no banco de dados a partir 
+	 * do objeto informado
+	 * 
+	 * @param permissaoEscolhida PermissaoModel
+	 * @return void
+	 * 
+	 */
+	public void deletarPermissao(PermissaoModel permissaoEscolhida) {
+		listaDePermissoesCriadas.remove(permissaoEscolhida);
+	}
+
+	
+	/**
+	 * Método atribuirPermissaoAoUsuario
+	 * 
+	 * Método responsável por atribuir uma permissao existente no banco de dados para 
+	 * o usuário informado
+	 * 
+	 * @param usuario Usuario
+	 * @param idDaPermissao Integer
+	 * @return void
+	 * 
+	 */
+//	public void atribuirPermissaoAoUsuario(Usuario usuario, Integer idDaPermissao) {
+//	
+//	}
 
 }
