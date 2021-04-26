@@ -8,8 +8,9 @@ import model.interfaces.InterfaceHashSenha;
 
 public class HashSenha implements InterfaceHashSenha {
 
-	public String senhaUsuario = "123456";
+	public String senhaDoUsuario = "123456";
 
+	// Será alterado 
 	/***
 	 * Criptografia para sennha.
 	 * 
@@ -24,7 +25,7 @@ public class HashSenha implements InterfaceHashSenha {
 	 */
 	public boolean validarHashSenha(String senha)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		if (senha.equals(senhaUsuario)) {
+		if (senha.equals(senhaDoUsuario)) {
 			MessageDigest hash = MessageDigest.getInstance("MD5");
 			byte messageDigest[] = hash.digest(senha.getBytes("UTF-8"));
 			System.out.println(messageDigest);

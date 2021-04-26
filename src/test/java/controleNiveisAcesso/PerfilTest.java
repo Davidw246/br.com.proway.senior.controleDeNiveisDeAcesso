@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import model.acesso.Perfil;
 import model.acesso.Permissao;
-import model.login.Usuario;
+import model.acesso.Usuario;
 
 public class PerfilTest {
 

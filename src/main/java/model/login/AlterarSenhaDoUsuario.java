@@ -2,24 +2,17 @@ package model.login;
 
 import java.util.Random;
 
-public class AlterarSenha {
-	private String nome;
-	private String email;
+public class AlterarSenhaDoUsuario {
+	private String loginDoUsuario;
 
-	public String getNome() {
-		return nome;
+
+
+	public String getLoginDoUsuario() {
+		return loginDoUsuario;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setLoginDoUsuario(String loginDoUsuario) {
+		this.loginDoUsuario = loginDoUsuario;
 	}
 
 	/**
@@ -31,9 +24,10 @@ public class AlterarSenha {
 	 * @param email        Email do usuário
 	 * @param codigoGerado Código aleatório gerado pelo sistema
 	 */
-	public boolean enviarEmail(String email) {
+	// Adicionar enviarCodigo no método
+	public boolean enviarEmail(String loginDoUsuario) {
 		boolean verificacaoUsuario;
-		if (email.equalsIgnoreCase(this.getEmail())) {
+		if (loginDoUsuario.equalsIgnoreCase(this.getLoginDoUsuario())) {
 			verificacaoUsuario = true;
 		} else {
 			verificacaoUsuario = false;
@@ -47,10 +41,10 @@ public class AlterarSenha {
 	 * 
 	 * @return boolean
 	 */
-	public boolean verificarUsuario(String email) {
+	public boolean verificarUsuario(String loginDoUsuario) {
 
 		boolean verificacao;
-		if (nome.equalsIgnoreCase(this.getEmail())) {
+		if (loginDoUsuario.equalsIgnoreCase(this.getLoginDoUsuario())) {
 			verificacao = true;
 		} else {
 			verificacao = false;
@@ -65,11 +59,12 @@ public class AlterarSenha {
 	 * 
 	 * @return Código digitado pelo usuário
 	 */
-	public int solicitarCodigo() {
-		System.out.print("Código verificador de 5 digitos: ");
-		int codigo = 12345;
-		return codigo;
-	}
+	// Não está sendo utilizado, é front
+//	public int solicitarCodigo() {
+//		System.out.print("Código verificador de 5 digitos: ");
+//		int codigo = 12345;
+//		return codigo;
+//	}
 
 	/**
 	 * Gera um código aleatório

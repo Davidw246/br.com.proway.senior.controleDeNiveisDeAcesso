@@ -3,7 +3,6 @@ package model.acesso;
 import java.util.ArrayList;
 
 import model.interfaces.InterfacePerfil;
-import model.login.Usuario;
 
 public class Perfil implements InterfacePerfil {
 
