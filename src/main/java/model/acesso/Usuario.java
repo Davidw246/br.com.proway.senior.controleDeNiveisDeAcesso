@@ -4,19 +4,16 @@ import java.util.ArrayList;
 
 public class Usuario {
 
-	/**
-	 * 
-	 * Atributos do Usuário
-	 */
 	int idDoUsuario;
 	String loginDoUsuario;
 	String senhaDoUsuario;
 	Perfil perfil;
-	//ArrayList<String> listaDasPermissoesDoUsuario = new ArrayList<String>();
-	
+	boolean isLogado;
+	// ArrayList<String> listaDasPermissoesDoUsuario = new ArrayList<String>();
+
 	public Usuario() {
-		
-		}
+
+	}
 
 	public Usuario(int id, String login, String senha, Perfil perfil) {
 		this.idDoUsuario = id;
@@ -86,29 +83,12 @@ public class Usuario {
 		this.perfil = perfil;
 	}
 
-
-	
-	/**
-	 * O método faz a verificação de login do perfil.
-	 * 
-	 * @param login
-	 * @param senha
-	 * @return true boolean
-	 */
-
-	public boolean logarPerfil(String login, String senha) {
-		if (login.equals("") || senha.equals("")) {
-			return false;
-		} else if (login.equals(null) || senha.equals(null)) {
-			return false;
-
-		} else {
-			if (login.equalsIgnoreCase(this.getLogin()) && senha.equals(this.getSenha())) {
-				return true;
-			} else {
-				return false;
-			}
-		}
+	public boolean getIsLogado() {
+		return isLogado;
 	}
-		
+
+	public void setLogado(boolean isLogado) {
+		this.isLogado = isLogado;
+	}
+
 }
