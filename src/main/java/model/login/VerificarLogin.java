@@ -4,8 +4,8 @@ import model.interfaces.InterfaceAcessoUsuario;
 
 public class VerificarLogin implements InterfaceAcessoUsuario {
 
-	String login;
-	String senha;
+	String loginDoUsuario;
+	String senhaDoUsuario;
 
 	/***
 	 * Verifica se usuário existe.
@@ -17,7 +17,7 @@ public class VerificarLogin implements InterfaceAcessoUsuario {
 	 * @param String login
 	 * @return
 	 */
-
+	// rever corpo do método para validar se o email consta na base de dados (array) para permitir o login
 	public boolean validarLogin(String login) {
 		if (login.equalsIgnoreCase(this.getLogin())) {
 			return true;
@@ -26,6 +26,7 @@ public class VerificarLogin implements InterfaceAcessoUsuario {
 		}
 	}
 
+	// rever corpo do método para validar se a senha consta na base de dados (array) para permitir o login
 	/***
 	 * Verifica se senha existe.
 	 * 
@@ -51,13 +52,14 @@ public class VerificarLogin implements InterfaceAcessoUsuario {
 	 * @param String login
 	 * @return
 	 */
-	public boolean limitadorLogin(String login) {
-		if (login.length() <= 10) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	// email ultrapassa limite
+//	public boolean limitadorLogin(String login) {
+//		if (login.length() <= 10) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
 
 	/***
 	 * Verifica tamanho do senha digitado.
@@ -68,6 +70,7 @@ public class VerificarLogin implements InterfaceAcessoUsuario {
 	 * @param String senha
 	 * @return
 	 */
+	// aumentar limite de caracteres (24). Verificar para obrigar numero e caracter especial na senha
 	public boolean limitadorSenha(String senha) {
 		if (senha.length() <= 10) {
 			return true;
@@ -77,19 +80,19 @@ public class VerificarLogin implements InterfaceAcessoUsuario {
 	}
 
 	public String getLogin() {
-		return login;
+		return loginDoUsuario;
 	}
 
 	public void setLogin(String login) {
-		this.login = login;
+		this.loginDoUsuario = login;
 	}
 
 	public String getSenha() {
-		return senha;
+		return senhaDoUsuario;
 	}
 
 	public void setSenha(String senha) {
-		this.senha = senha;
+		this.senhaDoUsuario = senha;
 	}
 
 }

@@ -40,6 +40,19 @@ public class Permissao implements InterfacePermissao {
 			return true;
 		}
 	}
+	
+	/**
+	 * Método que adiciona um nome de Permissão a uma lista de Permissões de
+	 * um Usuário
+	 * 
+	 * @param nomeDaPermissao	Recebe String
+	 */
+	
+//	public void adicionarNomePermissaoNaListaPermissoes(String nomeDaPermissao) {
+//		for (int i = 0; i < listaDasPermissoesDoUsuario.size(); i++) {	
+//			listaDasPermissoesDoUsuario.add(nomeDaPermissao);
+//		}
+//	}
 
 	/**
 	 * Método que retorna uma String com a escolha da permissao

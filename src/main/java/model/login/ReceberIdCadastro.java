@@ -183,6 +183,7 @@ import java.util.regex.Pattern;
 	 * 
 	 * 
 	 */
+	// Mesclar com método logarPerfil na classe Usuario
 	public static boolean validarEmail(String email) {
 		boolean emailValido = false;
 		if (email != null && email.length() > 0) {
