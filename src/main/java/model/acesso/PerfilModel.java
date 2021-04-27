@@ -1,5 +1,7 @@
 package model.acesso;
 
+import java.util.ArrayList;
+
 /**
  * Classe PerfilModel
  * 
@@ -11,7 +13,7 @@ public class PerfilModel {
 	
 	private Integer idDoPerfil;
 	private String nomeDoPerfil;
-	private PermissaoModel permissao;
+	private ArrayList<PermissaoModel> listaDePermissoesDoPerfil = new ArrayList<PermissaoModel>();
 
 	public Integer getIdDoPerfil() {
 		return idDoPerfil;
@@ -29,26 +31,27 @@ public class PerfilModel {
 		this.nomeDoPerfil = nomeDoPerfil;
 	}
 
-	public PermissaoModel getPermissao() {
-		return permissao;
+	public ArrayList<PermissaoModel> getListaDePermissoesDoPerfil() {
+		return listaDePermissoesDoPerfil;
 	}
 
-	public void setPermissao(PermissaoModel permissao) {
-		this.permissao = permissao;
+	public void setListaDePermissoesDoPerfil(ArrayList<PermissaoModel> listaDePermissoesDoPerfil) {
+		this.listaDePermissoesDoPerfil = listaDePermissoesDoPerfil;
 	}
 	
 	
 
-	public PerfilModel(Integer idDoPerfil, String nomeDoPerfil, PermissaoModel permissao) {
+	public PerfilModel(Integer idDoPerfil, String nomeDoPerfil, ArrayList<PermissaoModel> listaDePermissoesDoPerfil) {
+		super();
 		this.idDoPerfil = idDoPerfil;
 		this.nomeDoPerfil = nomeDoPerfil;
-		this.permissao = permissao;
+		this.listaDePermissoesDoPerfil = listaDePermissoesDoPerfil;
 	}
 
 	@Override
 	public String toString() {
-		return "PerfilModel [idDoPerfil=" + idDoPerfil + ", nomeDoPerfil=" + nomeDoPerfil + ", permissao=" + permissao
-				+ "]";
+		return "PerfilModel [idDoPerfil=" + idDoPerfil + ", nomeDoPerfil=" + nomeDoPerfil
+				+ ", listaDePermissoesDoPerfil=" + listaDePermissoesDoPerfil + "]";
 	}
-	
+
 }

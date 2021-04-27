@@ -8,7 +8,7 @@ import model.acesso.PermissaoModel;
 /**
  * Classe PermissaoController
  * 
- * Classe responsável pelas validações e verificações das entradas
+ * Classe responsável pelas validações e verificações das entradas e saídas
  *
  */
 
@@ -22,9 +22,8 @@ public class PermissaoController {
 	 * Método responsável pela criação da permissão, verificando previamente se a mesma 
 	 * já existe na lista de permissões cadastradas. 
 	 * 
-	 * @param idDaPermissao
-	 * @param nomeDaPermissao
-	 * @param listaDePermissoesCriadas
+	 * @param idDaPermissao Integer
+	 * @param nomeDaPermissao String
 	 * @return boolean
 	 */
 	public boolean criarPermissaoController(Integer idDaPermissao, String nomeDaPermissao) {
@@ -45,7 +44,7 @@ public class PermissaoController {
 	/**
 	 * Método deletarPermissaoController
 	 * 
-	 * Método realiza a exclusão da permissão conforme id solicitada
+	 * Método realiza a exclusão da permissão conforme id informado
 	 * 
 	 * @param idDaPermissao Integer
 	 * @return void
@@ -75,7 +74,7 @@ public class PermissaoController {
 	 * 
 	 * Método retorna a lista de permissões criadas
 	 * 
-	 * @return ArrayList
+	 * @return ArrayList<PermissaoModel>
 	 */
 	public ArrayList<PermissaoModel> lerListaDePermissoesCriadas() {
 		return dao.lerListaDePermissoesCriadas();

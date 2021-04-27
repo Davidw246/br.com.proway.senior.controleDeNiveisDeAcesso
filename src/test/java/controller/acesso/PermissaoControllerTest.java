@@ -26,7 +26,7 @@ public class PermissaoControllerTest {
 		String nomeDaPermissao1 = "Atribuir algo";
 
 		Integer idDaPermissao2 = 20;
-		String nomeDaPermissao2 = "Adicionar algo";
+		String nomeDaPermissao2 = "Deletar algo";
 
 		boolean permissao1 = permissaoController.criarPermissaoController(idDaPermissao1, nomeDaPermissao1);
 		boolean permissao2 = permissaoController.criarPermissaoController(idDaPermissao2, nomeDaPermissao2);
@@ -46,7 +46,7 @@ public class PermissaoControllerTest {
 		String nomeDaPermissao1 = "Atribuir algo";
 
 		Integer idDaPermissao2 = 10;
-		String nomeDaPermissao2 = "Adicionar algo";
+		String nomeDaPermissao2 = "Deletar algo";
 
 		boolean permissao1 = permissaoController.criarPermissaoController(idDaPermissao1, nomeDaPermissao1);
 		boolean permissao2 = permissaoController.criarPermissaoController(idDaPermissao2, nomeDaPermissao2);

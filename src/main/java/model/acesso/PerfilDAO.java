@@ -2,96 +2,104 @@ package model.acesso;
 
 import java.util.ArrayList;
 
-import model.interfaces.InterfacePerfil;
+import model.interfaces.InterfacePerfilDAO;
 
-public class PerfilDAO implements InterfacePerfil{
+/**
+ * Classe PerfilDAO
+ * 
+ * Classe que implementa a interface que se relaciona com o banco de dados de perfis
+ * 
+ */
 
+public class PerfilDAO implements InterfacePerfilDAO{
+
+	private ArrayList<PerfilModel> listaDePerfisCriados = new ArrayList<PerfilModel>();
+	
 	/**
-	 * Um método que cria o nome do perfil/cadastra a permissão.
+	 * Método criarPerfil
 	 * 
-	 * Verifica se o nome se o nome recebido é nulo ou vazio.
+	 * Método responsável por criar um perfil vazio no banco de dados conforme
+	 * atribuitos associadados
 	 * 
-	 * Recebe uma string.
+	 * @param idDoPerfil Integer
+	 * @param nomeDoPerfil String
+	 * @return PerfilModel 
 	 * 
-	 * Adiciona a string (nome do perfil) ao ArrayList (lista de perfis).
-	 * 
-	 * @param nomeDoPerfil    Recebe string
-	 * @param nomeDaPermissao Recebe string
-	 * @return validacao Retorna true ou false.
 	 */
-	public boolean criarNomePerfil(String nomeDoPerfil, String nomeDaPermissao) {
-		boolean validacao;
+	public PerfilModel criarPerfilVazio(Integer idDoPerfil, String nomeDoPerfil) {
+		PerfilModel perfilModel = new PerfilModel(idDoPerfil, nomeDoPerfil, new ArrayList<PermissaoModel>());
+		listaDePerfisCriados.add(perfilModel);	
+		return perfilModel;
+	}
 
-		if (nomeDoPerfil.equals("") || nomeDoPerfil.equals(null)) {
-			validacao = false;
-		} else {
-			permissaoDeAcesso.escolherPermissao(nomeDaPermissao);
-
-			setNomeDoPerfil(nomeDoPerfil);
-			listaDosPerfis.add(nomeDoPerfil);
-
-			validacao = true;
+	
+	/**
+	 * Método deletarPerfil
+	 * 
+	 * Método responsável por deletar um perfil existente no banco de dados a partir do
+	 * id informado
+	 * 
+	 * @param idDoPerfil Integer
+	 * @return boolean
+	 * 
+	 */
+	public boolean deletarPerfil(Integer idDoPerfil) {
+		PerfilModel perfilEscolhido = this.buscarPerfil(idDoPerfil);
+		if (perfilEscolhido != null) {
+			listaDePerfisCriados.remove(perfilEscolhido);
+			return true;
 		}
-		return validacao;
+		return false;
 	}
 
 	/**
-	 * Método que adiciona uma Permissão a um Perfil de Usuário já cadastrado.
+	 * Método buscarPerfil
 	 * 
-	 * Verifica dentro da lista de Permissões de um Perfil de um Usuário.
+	 * Método responsável por buscar, através do id, um perfil dentro de uma
+	 * lista de Perfis. Se o perfil existe, retorna o mesmo. Se não, retorna
+	 * nulo.
 	 * 
-	 * Adiciona Permissão a este Perfil.
-	 * 
-	 * @param nomeDoLogin Recebe String
-	 * @return validacao
+	 * @param idDoPerfil Integer
+	 * @return PerfilModel
 	 */
-	public boolean adicionarPermissaoAPerfilDoUsuarioCadastrado(String nomeDoLogin, String nomeDaPermissao) {
-		Usuario usuario = new Usuario();
-		boolean validacao = false;
-		
-		if (nomeDoLogin.equalsIgnoreCase(usuario.getLogin())) {
-			for (int i = 0; i < listaDosPerfis.size(); i++) {
-				if (listaDosPerfis.get(i).equalsIgnoreCase(usuario.getPerfil())) {
-					usuario.adicionarNomePermissaoNaListaPermissoes(nomeDaPermissao);
-					validacao = true;
-				}
+	public PerfilModel buscarPerfil(Integer idDoPerfil) {
+		for (PerfilModel perfilModel : listaDePerfisCriados) {
+			if (perfilModel.getIdDoPerfil() == idDoPerfil) {
+				return perfilModel;
 			}
 		}
-		return validacao;
+		return null;
 	}
 
 	/**
-	 * Método que remove uma Permissão de um Perfil de Usuário já cadastrado.
+	 * Método lerListaDePerfisCriados
 	 * 
-	 * Verifica dentro da lista de Permissões de um Perfil de um Usuário.
-	 * 
-	 * Remove uma Permissão específica deste Perfil.
-	 * 
-	 * @param nomeDoLogin     Recebe String
-	 * @param nomeDaPermissao Recebe String
-	 * @return validacao
+	 * Retorna a lista de perfis criados
+	 *  
+	 * @return ArrayList<PerfilModel>
 	 */
-
-	public boolean removerPermissaoDoPerfilDoUsuarioCadastrado(ArrayList<String> listaDasPermissoesDoUsuario, String nomeDoLogin,
-			String nomeDaPermissao) {
-		
-		Usuario usuario = new Usuario();
-		boolean validacao = false;
-		
-		if (nomeDoLogin.equalsIgnoreCase(usuario.getLogin())) {
-			for (int i = 0; i < listaDosPerfis.size(); i++) {
-				if (listaDosPerfis.get(i).equalsIgnoreCase(usuario.getPerfil())) {
-					for (int j = 0; j < listaDasPermissoesDoUsuario.size(); j++) {
-						if (nomeDaPermissao.equalsIgnoreCase(listaDasPermissoesDoUsuario.get(i))) {
-							listaDasPermissoesDoUsuario.remove(i);
-							validacao = true;
-						}
-					}
-				}
-			}
-		}
-		return validacao;
+	public ArrayList<PerfilModel> lerListaDePerfisCriados() {
+		return listaDePerfisCriados;
 	}
 	
+	/**
+	 * Método alterarPerfil
+	 * 
+	 * Método procura um perfil, com base no seu id, e altera o seu nome
+	 * 
+	 * @param idDoPerfil Integer
+	 * @param novoNomeDoPerfil String
+	 * @return PerfilModel
+	 */
+	public PerfilModel alterarNomePerfil(Integer idDoPerfil, String novoNomeDoPerfil) {
+		PerfilModel perfilAlterado = this.buscarPerfil(idDoPerfil);
+
+		if (perfilAlterado != null) {
+
+			perfilAlterado.setNomeDoPerfil(novoNomeDoPerfil);
+			return perfilAlterado;
+		}
+		return null;
+	}
 
 }
