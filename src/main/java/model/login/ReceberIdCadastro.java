@@ -151,4 +151,48 @@ import java.util.regex.Pattern;
 		return dadosValidos;
 	}
 
+	// Verificar método duplicado?
+	/**
+	 * O método ValidaEmail verifica se os endereços de e-mail dos colaboradores são
+	 * válidos e lista a relação na tela.
+	 * 
+	 * @param boolean b
+	 * @return emailValido
+	 */
+//	public static boolean validarEmail(boolean b) {
+//		boolean emailValido = true;
+//		for (int i = 0; i < email.size(); i++) {
+//			if (email.contains(null)) {
+//				emailValido = false;
+//			}
+//			System.out.println("Relação de e-mails dos colaboradores recebidos: " + email);
+//		}
+//		return emailValido;
+//	}
+
+	/**
+	 * Verifica se os endereços de e-mai foram cadastrados corretamente ou se
+	 * possuem caracteres especiais.
+	 * 
+	 * A variável expression relaciona os caracteres que serão buscados dentro da variável email.
+	 * O método matcher() é empregado para procurar um padrão na string, retornando um objeto Matcher que contém
+	 * informações sobre a pesquisa realizada.
+	 * 
+	 * @param String email
+	 * @return isValidaEmail
+	 * 
+	 * 
+	 */
+	public static boolean validarEmail(String email) {
+		boolean emailValido = false;
+		if (email != null && email.length() > 0) {
+			String expressao = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"; // 
+			Pattern pattern = Pattern.compile(expressao, Pattern.CASE_INSENSITIVE);
+			Matcher matcher = pattern.matcher(email);
+			if (matcher.matches()) {
+				emailValido = true;
+			}
+		}
+		return emailValido;
+	}
 }

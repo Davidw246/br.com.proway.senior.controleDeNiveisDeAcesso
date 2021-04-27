@@ -170,8 +170,8 @@ public class RecebeIdCadastroTest {
 	@Test
 	public void testValidaEmailValido() {
 
-		String emailValido = "guilherme@companyname.com";
-		
+		boolean emailValido;
+		emailValido = true;
 
 		ArrayList<String> emailTestValido = new ArrayList<String>();
 		emailTestValido.add("guilherme@companyname.com");
@@ -199,8 +199,8 @@ public class RecebeIdCadastroTest {
 	@Test
 	public void testValidaEmailInvalido() {
 
-		String emailInvalido = null;
-	
+		boolean emailInvalido;
+		emailInvalido = true;
 
 		ArrayList<String> emailTestInvalido = new ArrayList<String>();
 		emailTestInvalido.add("guilherme@companyname.com");
@@ -228,8 +228,8 @@ public class RecebeIdCadastroTest {
 		boolean emailValido;
 		emailValido = true;
 		
-		assertEquals(ReceberIdCadastro.validarEmail(emailTestValido), emailValido);
-		System.out.println("O email: "+ emailTestValido + " é " + ReceberIdCadastro.validarEmail(emailTestValido));
+		assertEquals(ReceberIdCadastro.isValidEmail(emailTestValido), emailValido);
+		System.out.println("O email: "+ emailTestValido + " é " + ReceberIdCadastro.isValidEmail(emailTestValido));
 	}
 	
 	/**
@@ -243,8 +243,8 @@ public class RecebeIdCadastroTest {
 		boolean emailInvalido;
 		emailInvalido = false;
 		
-		assertEquals(ReceberIdCadastro.validarEmail(emailTestInvalido), emailInvalido);
-		System.out.println("O email: "+ emailTestInvalido + " é " + ReceberIdCadastro.validarEmail(emailTestInvalido));
+		assertEquals(ReceberIdCadastro.isValidEmail(emailTestInvalido), emailInvalido);
+		System.out.println("O email: "+ emailTestInvalido + " é " + ReceberIdCadastro.isValidEmail(emailTestInvalido));
 	}
 
 	public boolean isIdValido() {
