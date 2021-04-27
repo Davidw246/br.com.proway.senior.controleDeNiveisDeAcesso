@@ -9,7 +9,6 @@ public class Usuario {
 	boolean isLogado;
 
 	public Usuario() {
-
 	}
 
 	public Usuario(int id, String login, String senha, PerfilModel perfil) {

@@ -6,5 +6,5 @@ public interface DaoInterface<T> {
 	ArrayList<T> getAll();
 	void create(T item);
 	T get (int id);
-	boolean update (T item);
+	boolean update (T item);	
 }

@@ -13,8 +13,8 @@ public class UsuarioDAO implements DaoInterface<Usuario> {
 	 * Recebe objeto e adiciona no ArrayList<Usuario> user da classe UsuarioDAO
 	 * @param Usuario novoUser como parâmetro para o DAO adicionar na lista de usuarios.
 	 */
-	public void create(Usuario novoUser) {
-		Usuario user = novoUser;
+	public void create(Usuario novoUsuario) {
+		Usuario user = novoUsuario;
 		this.user.add(user);
 	}
 
