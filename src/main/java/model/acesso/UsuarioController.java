@@ -1,17 +1,14 @@
 package model.acesso;
 
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.junit.internal.runners.model.EachTestNotifier;
-
 import model.interfaces.InterfaceUsuarioController;
 
 public class UsuarioController implements InterfaceUsuarioController {
 
 	UsuarioDAO daoUsuario = new UsuarioDAO();
+	
 	/**
 	 * Verifica se os endereços de email foram cadastrados corretamente ou se
 	 * possuem caracteres especiais.
@@ -24,9 +21,8 @@ public class UsuarioController implements InterfaceUsuarioController {
 	 * @param String email
 	 * @return isValidaEmail
 	 * 
-	 * 
 	 */
-	// Mesclar com método logarPerfil na classe Usuario
+	
 	public boolean validarEmail(String email) {
 		boolean emailValido = false;
 		if (email != null && email.length() > 0) {
@@ -43,18 +39,10 @@ public class UsuarioController implements InterfaceUsuarioController {
 	/**
 	 * Verifica se a senha corresponde aos pre requisitos da expressao. 
 	 *
-	 *(?=.*[0-9]) um dígito deve ocorrer pelo menos uma vez 
-	 *(?=.*[a-z]) uma letra minúscula deve ocorrer pelo menos uma vez
-	 *(?=.*[A-Z]) uma letra maiúscula deve ocorrer pelo menos uma vez 
-	 *(?=\\S+$) nenhum espaço em branco permitido em toda a string 
-	 *.{6,} pelo menos 6 caracteres
-	 * 
 	 * @param String senha
 	 * @return senhaValida
-	 * 
-	 * 
 	 */
-	// Mesclar com método logarPerfil na classe Usuario
+	
 	public boolean validarSenha(String senha) {
 		boolean senhaValida = false;
 		if (senha != null && senha.length() > 0) {
@@ -77,7 +65,7 @@ public class UsuarioController implements InterfaceUsuarioController {
 	 * @param email        Email do usuário
 	 * @param codigoGerado Código aleatório gerado pelo sistema
 	 */
-	// Adicionar enviarCodigo no método
+	
 	public String enviarEmail(String loginDoUsuario) {
 		
 		String codigo = "" + this.gerarCodigo();
@@ -88,11 +76,49 @@ public class UsuarioController implements InterfaceUsuarioController {
 		return codigo;
 	}
 
+	/**
+	 * Método que altera a senha do usuario
+	 * 
+	 * Recebe id e nova senha para alterar
+	 * 
+	 * @param int id do usuario procurado para alteraçao
+	 * @param String senhaNova do usuario
+	 */
 	public void alteraSenha(int id, String senhaNova) {
 		
 		Usuario usuarioEscolhido = daoUsuario.get(id);
-		daoUsuario.get(id).setSenha(senhaNova);
+		
 		usuarioEscolhido.setSenha(senhaNova);
+		daoUsuario.update(usuarioEscolhido);
+	}
+	
+	/**
+	 * Método que altera o login do usuario
+	 * 
+	 * Recebe id e novo login para alterar
+	 * 
+	 * @param int id do usuario procurado para alteraçao
+	 * @param String loginNovo do usuario
+	 */
+	public void alteraLogin(int id, String loginNovo) {
+		
+		Usuario usuarioEscolhido = daoUsuario.get(id);
+		usuarioEscolhido.setLogin(loginNovo);
+		daoUsuario.update(usuarioEscolhido);
+	}
+	
+	/**
+	 * Método que altera perfil do usuario.
+	 * 
+	 * Recebe id do usuario, e perfil novo para alterar
+	 * 
+	 * @param int id do usuario procurado para a troca de perfil
+	 * @param Perfil perfilNovo do usuario que vai ter o perfil trocado.
+	 */
+	public void alteraPerfil(int id, PerfilModel novoPerfil) {
+	
+		Usuario usuarioEscolhido = daoUsuario.get(id);
+		usuarioEscolhido.setPerfil(novoPerfil);
 		daoUsuario.update(usuarioEscolhido);
 	}
 

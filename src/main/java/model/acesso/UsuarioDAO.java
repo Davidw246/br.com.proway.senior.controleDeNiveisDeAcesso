@@ -1,7 +1,6 @@
 package model.acesso;
 
 import java.util.ArrayList;
-
 import model.interfaces.DaoInterface;
 
 public class UsuarioDAO implements DaoInterface<Usuario> {

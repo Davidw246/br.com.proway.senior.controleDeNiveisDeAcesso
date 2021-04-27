@@ -1,7 +1,5 @@
 package model.acesso;
 
-import java.util.ArrayList;
-
 public class Usuario {
 
 	int idDoUsuario;
