@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import model.interfaces.InterfacePermissaoDAO;
 
 /**
- * Classe PermissaoDao
+ * Classe PermissaoDAO
  * 
- * Classe que implementa a interface em relação com o banco de dados referentes
- * as possiveis permissões do usuario
+ * Classe que implementa a interface que se relaciona com o banco de dados de permissões
  * 
  */
 

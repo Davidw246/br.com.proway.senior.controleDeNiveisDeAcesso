@@ -7,7 +7,7 @@ import org.junit.Test;
 public class PerfilDAOTest {
 
 	@Test
-	public void verificaSeOcorreACriacaoDeUmPerfilDAO() {
+	public void verificaSeOcorreACriacaoDeUmPerfilVazioDAO() {
 
 		PerfilDAO perfilDAO = new PerfilDAO();
 		PerfilModel perfilEsperado = new PerfilModel(10, "Ponto", null);
@@ -22,7 +22,7 @@ public class PerfilDAOTest {
 	}
 
 	@Test
-	public void verificaSeOcorreACriacaoDeDoisPerfisDAO() {
+	public void verificaSeOcorreACriacaoDeDoisPerfisVaziosDAO() {
 
 		PerfilDAO perfilDAO = new PerfilDAO();
 
@@ -40,7 +40,7 @@ public class PerfilDAOTest {
 
 	
 	@Test
-	public void verificaSeOPerfilFoiExcluidoDAO() {
+	public void verificaSeOPerfilVazioFoiExcluidoDAO() {
 		
 		PerfilDAO perfilDAO = new PerfilDAO();
 
@@ -54,7 +54,7 @@ public class PerfilDAOTest {
 	}
 	
 	@Test
-	public void verificaSeOPerfilFoiAlterado() {
+	public void verificaSeOPerfilVazioFoiAlteradoDAO() {
 		PerfilDAO perfilDAO = new PerfilDAO();
 		
 		Integer idDoPerfil = 10;
@@ -62,7 +62,7 @@ public class PerfilDAOTest {
 		String nomeDoPerfilNovo = "Cadastro";
 		
 		perfilDAO.criarPerfilVazio(idDoPerfil, nomeDoPerfilAntigo);
-		PerfilModel perfilAlterado = perfilDAO.alterarPerfil(idDoPerfil, nomeDoPerfilNovo);
+		PerfilModel perfilAlterado = perfilDAO.alterarNomePerfil(idDoPerfil, nomeDoPerfilNovo);
 		
 		assertEquals(nomeDoPerfilNovo, perfilAlterado.getNomeDoPerfil());
 		

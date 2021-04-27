@@ -2,66 +2,128 @@ package controller.acesso;
 
 import java.util.ArrayList;
 
-import model.acesso.Usuario;
+import model.acesso.PerfilDAO;
+import model.acesso.PerfilModel;
+import model.acesso.PermissaoDAO;
+import model.acesso.PermissaoModel;
+
+/**
+ * Classe PerfilController
+ * 
+ * Classe responsável pelas validações e verificações das entradas e saídas
+ *
+ */
 
 public class PerfilController {
-	
+
+	private PerfilDAO dao = new PerfilDAO();
+
 	/**
-	 * Método que adiciona uma Permissão a um Perfil de Usuário já cadastrado.
+	 * Método criarPerfilVazioController
 	 * 
-	 * Verifica dentro da lista de Permissões de um Perfil de um Usuário.
+	 * Método responsável pela criação do perfil vazio, verificando previamente se o
+	 * mesmo já existe na lista de perfis cadastrados.
 	 * 
-	 * Adiciona Permissão a este Perfil.
-	 * 
-	 * @param nomeDoLogin Recebe String
-	 * @return validacao
+	 * @param idDoPerfil   Integer
+	 * @param nomeDoPerfil String
+	 * @return boolean
 	 */
-	public boolean adicionarPermissaoAPerfilDoUsuarioCadastrado(String nomeDoLogin, String nomeDaPermissao) {
-		Usuario usuario = new Usuario();
-		boolean validacao = false;
-		
-		if (nomeDoLogin.equalsIgnoreCase(usuario.getLogin())) {
-			for (int i = 0; i < listaDosPerfis.size(); i++) {
-				if (listaDosPerfis.get(i).equalsIgnoreCase(usuario.getPerfil())) {
-					usuario.adicionarNomePermissaoNaListaPermissoes(nomeDaPermissao);
-					validacao = true;
-				}
+	public boolean criarPerfilVazioController(Integer idDoPerfil, String nomeDoPerfil) {
+
+		if (dao.lerListaDePerfisCriados().size() == 0) {
+			dao.criarPerfilVazio(idDoPerfil, nomeDoPerfil);
+			return true;
+		} else {
+			if (dao.buscarPerfil(idDoPerfil) == null) {
+				dao.criarPerfilVazio(idDoPerfil, nomeDoPerfil);
+				return true;
+			} else {
+				return false;
 			}
 		}
-		return validacao;
 	}
 
 	/**
-	 * Método que remove uma Permissão de um Perfil de Usuário já cadastrado.
+	 * Método deletarPerfilController
 	 * 
-	 * Verifica dentro da lista de Permissões de um Perfil de um Usuário.
+	 * Método realiza a exclusão do perfil conforme id informado
 	 * 
-	 * Remove uma Permissão específica deste Perfil.
-	 * 
-	 * @param nomeDoLogin     Recebe String
-	 * @param nomeDaPermissao Recebe String
-	 * @return validacao
+	 * @param idDoPerfil Integer
+	 * @return void
 	 */
-
-	public boolean removerPermissaoDoPerfilDoUsuarioCadastrado(ArrayList<String> listaDasPermissoesDoUsuario, String nomeDoLogin,
-			String nomeDaPermissao) {
-		
-		Usuario usuario = new Usuario();
-		boolean validacao = false;
-		
-		if (nomeDoLogin.equalsIgnoreCase(usuario.getLogin())) {
-			for (int i = 0; i < listaDosPerfis.size(); i++) {
-				if (listaDosPerfis.get(i).equalsIgnoreCase(usuario.getPerfil())) {
-					for (int j = 0; j < listaDasPermissoesDoUsuario.size(); j++) {
-						if (nomeDaPermissao.equalsIgnoreCase(listaDasPermissoesDoUsuario.get(i))) {
-							listaDasPermissoesDoUsuario.remove(i);
-							validacao = true;
-						}
-					}
-				}
-			}
-		}
-		return validacao;
+	public void deletarPerfilController(Integer idDoPerfil) {
+		dao.deletarPerfil(idDoPerfil);
 	}
 
+	/**
+	 * Método lerListaDePerfisCriados
+	 * 
+	 * Método retorna a lista de perfis criados
+	 * 
+	 * @return ArrayList<PerfilModel>
+	 */
+	public ArrayList<PerfilModel> lerListaDePerfisCriados() {
+		return dao.lerListaDePerfisCriados();
+	}
+
+	/**
+	 * Método alterarPerfilController
+	 * 
+	 * Método realiza a alteração do nome de um perfil conforme id informado
+	 * 
+	 * @param idDoPerfil     Integer
+	 * @param novoNomePerfil String
+	 * @return void
+	 */
+	public void alterarNomePerfilController(Integer idDoPerfil, String novoNomePerfil) {
+		dao.alterarNomePerfil(idDoPerfil, novoNomePerfil);
+	}
+
+	/**
+	 * Método adicionarPermissaoEmUmPerfil
+	 * 
+	 * Método adiciona uma permissão a um perfil, com base nos seus respectivos id's
+	 * 
+	 * @param idDoPerfil
+	 * @param idDaPermissao
+	 * @return void
+	 */
+	public void adicionarPermissaoEmUmPerfil(Integer idDoPerfil, Integer idDaPermissao) {
+		PermissaoDAO permissaoDAO = new PermissaoDAO();
+
+		ArrayList<PermissaoModel> listaDePermissoesDoPerfil = dao.buscarPerfil(idDoPerfil)
+				.getListaDePermissoesDoPerfil();
+
+		listaDePermissoesDoPerfil.add(permissaoDAO.buscarPermissao(idDaPermissao));
+	}
+
+	/**
+	 * Método deletarPermissaoEmUmPerfil
+	 * 
+	 * Método remove uma permissão de um perfil, com base nos seus respectivos id's
+	 * 
+	 * @param idDoPerfil
+	 * @param idDaPermissao
+	 * @return void
+	 */
+	public void deletarPermissaoEmUmPerfil(Integer idDoPerfil, Integer idDaPermissao) {
+		PermissaoDAO permissaoDAO = new PermissaoDAO();
+
+		ArrayList<PermissaoModel> listaDePermissoesDoPerfil = dao.buscarPerfil(idDoPerfil)
+				.getListaDePermissoesDoPerfil();
+
+		listaDePermissoesDoPerfil.remove(permissaoDAO.buscarPermissao(idDaPermissao));
+	}
+
+	/**
+	 * Método listarPermissoesDeUmPerfil
+	 * 
+	 * Método retorna uma lista de permissões atribuídas a um perfil
+	 * 
+	 * @param idDoPerfil
+	 * @return ArrayList<PermissaoModel>
+	 */
+	public ArrayList<PermissaoModel> listarPermissoesDeUmPerfil(Integer idDoPerfil) {
+		return dao.buscarPerfil(idDoPerfil).getListaDePermissoesDoPerfil();
+	}
 }

@@ -16,6 +16,6 @@ public interface InterfacePerfilDAO {
 	
 	public ArrayList<PerfilModel> lerListaDePerfisCriados();
 	
-	public PerfilModel alterarPerfil(Integer idDoPerfil, String nomeDoPerfil);
+	public PerfilModel alterarNomePerfil(Integer idDoPerfil, String nomeDoPerfil);
 	
 }

@@ -32,7 +32,7 @@ public class PermissaoDAOTest {
 		String nomeDaPermissao1 = "Atribuir algo";
 
 		Integer idDaPermissao2 = 20;
-		String nomeDaPermissao2 = "Adicionar algo";
+		String nomeDaPermissao2 = "Deletar algo";
 
 		permissaoDAO.criarPermissao(idDaPermissao1, nomeDaPermissao1);
 		permissaoDAO.criarPermissao(idDaPermissao2, nomeDaPermissao2);

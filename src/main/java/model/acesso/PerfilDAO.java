@@ -4,6 +4,13 @@ import java.util.ArrayList;
 
 import model.interfaces.InterfacePerfilDAO;
 
+/**
+ * Classe PerfilDAO
+ * 
+ * Classe que implementa a interface que se relaciona com o banco de dados de perfis
+ * 
+ */
+
 public class PerfilDAO implements InterfacePerfilDAO{
 
 	private ArrayList<PerfilModel> listaDePerfisCriados = new ArrayList<PerfilModel>();
@@ -20,7 +27,7 @@ public class PerfilDAO implements InterfacePerfilDAO{
 	 * 
 	 */
 	public PerfilModel criarPerfilVazio(Integer idDoPerfil, String nomeDoPerfil) {
-		PerfilModel perfilModel = new PerfilModel(idDoPerfil, nomeDoPerfil, null);
+		PerfilModel perfilModel = new PerfilModel(idDoPerfil, nomeDoPerfil, new ArrayList<PermissaoModel>());
 		listaDePerfisCriados.add(perfilModel);	
 		return perfilModel;
 	}
@@ -78,15 +85,13 @@ public class PerfilDAO implements InterfacePerfilDAO{
 	/**
 	 * Método alterarPerfil
 	 * 
-	 * Método procura um perfil, com base no seu id, e altera o(s) atributo(s)
-	 * desejado(s)
+	 * Método procura um perfil, com base no seu id, e altera o seu nome
 	 * 
 	 * @param idDoPerfil Integer
-	 * @param nomeDoPerfil String
-	 * @param listaDePermissoesDoPerfil ArrayList<PermissaoModel>
+	 * @param novoNomeDoPerfil String
 	 * @return PerfilModel
 	 */
-	public PerfilModel alterarPerfil(Integer idDoPerfil, String novoNomeDoPerfil) {
+	public PerfilModel alterarNomePerfil(Integer idDoPerfil, String novoNomeDoPerfil) {
 		PerfilModel perfilAlterado = this.buscarPerfil(idDoPerfil);
 
 		if (perfilAlterado != null) {
