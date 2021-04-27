@@ -16,10 +16,6 @@ public class PermissaoController {
 
 	private PermissaoDAO dao = new PermissaoDAO();
 	
-	public PermissaoDAO getDao() {
-		return dao;
-	}
-
 	/**
 	 * Método criarPermissaoController
 	 * 
@@ -33,7 +29,7 @@ public class PermissaoController {
 	 */
 	public boolean criarPermissaoController(Integer idDaPermissao, String nomeDaPermissao) {
 		
-		if (dao.getListaDePermissoesCriadas().size() == 0) {
+		if (dao.lerListaDePermissoesCriadas().size() == 0) {
 			dao.criarPermissao(idDaPermissao, nomeDaPermissao);
 			return true;
 		} else {
@@ -43,29 +39,46 @@ public class PermissaoController {
 			} else {
 				return false;
 			}	
-		}
-		
-			
+		}			
+	}
+	
+	/**
+	 * Método deletarPermissaoController
+	 * 
+	 * Método realiza a exclusão da permissão conforme id solicitada
+	 * 
+	 * @param idDaPermissao Integer
+	 * @return void
+	 */
+	public void deletarPermissaoController(Integer idDaPermissao) {
+		dao.deletarPermissao(idDaPermissao);
 	}
 
 	/**
-	 * Método que retorna uma String com a escolha da permissao
+	 * Método atribuirPermissaoAoUsuario
 	 * 
-	 * Valida se o nome da permissao esta dentro do Array de permissoes
+	 * Método responsável por atribuir uma permissao existente no banco de dados
+	 * para o usuário informado
 	 * 
-	 * @param nomeDaPermissao Recebe String
-	 * @return true || false boolean
+	 * @param usuario       Usuario
+	 * @param idDaPermissao Integer
+	 * @return void
+	 * 
 	 */
-	public String escolherPermissao(String nomeDaPermissao) {
-		String validacao = "";
-		for (int i = 0; i < listaDasPermissoes.size(); i++) {
-			if (nomeDaPermissao.equalsIgnoreCase(listaDasPermissoes.get(i))) {
-				validacao = nomeDaPermissao;
-			} else {
-				validacao = "Você não tem acesso";
-			}
-		}
-		return validacao;
+	
+//	public void atribuirPermissaoAoUsuario(Usuario usuario, Integer idDaPermissao) {
+//	
+//	}
+	
+	/**
+	 * Método lerListaDePermissoesCriadas
+	 * 
+	 * Método retorna a lista de permissões criadas
+	 * 
+	 * @return ArrayList
+	 */
+	public ArrayList<PermissaoModel> lerListaDePermissoesCriadas() {
+		return dao.lerListaDePermissoesCriadas();
 	}
 
 }

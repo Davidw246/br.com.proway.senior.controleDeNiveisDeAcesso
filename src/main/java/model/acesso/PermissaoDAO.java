@@ -15,7 +15,6 @@ import controller.interfaces.InterfacePermissaoDAO;
 public class PermissaoDAO implements InterfacePermissaoDAO {
 
 	private ArrayList<PermissaoModel> listaDePermissoesCriadas = new ArrayList<PermissaoModel>();
-	
 
 	/**
 	 * Método criarPermissao
@@ -24,7 +23,7 @@ public class PermissaoDAO implements InterfacePermissaoDAO {
 	 * atribuito associadado
 	 * 
 	 * @param nomeDaPermissao String
-	 * @return PermissaoModel
+	 * @return PermissaoModel 
 	 * 
 	 */
 	public PermissaoModel criarPermissao(Integer idDaPermissao, String nomeDaPermissao) {
@@ -38,22 +37,23 @@ public class PermissaoDAO implements InterfacePermissaoDAO {
 	/**
 	 * Método deletarPermissao
 	 * 
-	 * Método responsável por deletar uma permissao no banco de dados a partir 
-	 * do objeto informado
+	 * Método responsável por deletar uma permissao existente no banco de dados a partir do
+	 * id informado
 	 * 
-	 * @param permissaoEscolhida PermissaoModel
+	 * @param idDaPermissao Integer
 	 * @return void
 	 * 
 	 */
-	public void deletarPermissao(PermissaoModel permissaoEscolhida) {
-		listaDePermissoesCriadas.remove(permissaoEscolhida);
+	public void deletarPermissao(Integer idDaPermissao) {
+		listaDePermissoesCriadas.remove(this.buscarPermissao(idDaPermissao));
 	}
 
 	/**
 	 * Método buscarPermissao
 	 * 
-	 * Método responsável por buscar, através do id, uma permissão dentro de uma lista de Permissoes.
-	 * Se a permissao existe, retorna a mesma. Se não, retorna nulo.
+	 * Método responsável por buscar, através do id, uma permissão dentro de uma
+	 * lista de Permissoes. Se a permissao existe, retorna a mesma. Se não, retorna
+	 * nulo.
 	 * 
 	 * @param idDaPermissao Integer
 	 * @return PermissaoModel
@@ -62,28 +62,21 @@ public class PermissaoDAO implements InterfacePermissaoDAO {
 		for (PermissaoModel permissaoModel : listaDePermissoesCriadas) {
 			if (permissaoModel.getIdDaPermissao() == idDaPermissao) {
 				return permissaoModel;
-			}			
+			}
 		}
 		return null;
 	}
 
-	public ArrayList<PermissaoModel> getListaDePermissoesCriadas() {
+	/**
+	 * Método lerListaDePermissoesCriadas
+	 * 
+	 * Retorna a lista de permissoes criadas
+	 *  
+	 * @return ArrayList<PermissaoModel>
+	 */
+	public ArrayList<PermissaoModel> lerListaDePermissoesCriadas() {
 		return listaDePermissoesCriadas;
 	}
 
-	/**
-	 * Método atribuirPermissaoAoUsuario
-	 * 
-	 * Método responsável por atribuir uma permissao existente no banco de dados para 
-	 * o usuário informado
-	 * 
-	 * @param usuario Usuario
-	 * @param idDaPermissao Integer
-	 * @return void
-	 * 
-	 */
-//	public void atribuirPermissaoAoUsuario(Usuario usuario, Integer idDaPermissao) {
-//	
-//	}
 
 }

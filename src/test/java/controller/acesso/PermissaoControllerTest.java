@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import model.acesso.PermissaoDAO;
-
 public class PermissaoControllerTest {
 
 	@Test
@@ -36,7 +34,7 @@ public class PermissaoControllerTest {
 		assertTrue(permissao1);
 		assertTrue(permissao2);
 
-		assertEquals(2, permissaoController.getDao().getListaDePermissoesCriadas().size());
+		assertEquals(2, permissaoController.lerListaDePermissoesCriadas().size());
 	}
 
 	@Test
@@ -56,7 +54,23 @@ public class PermissaoControllerTest {
 		assertTrue(permissao1);
 		assertFalse(permissao2);
 
-		assertEquals(1, permissaoController.getDao().getListaDePermissoesCriadas().size());
+		assertEquals(1, permissaoController.lerListaDePermissoesCriadas().size());
 	}
+	
+	@Test
+	public void verificaSeAPermissaoFoiExcluida() {
+		
+		PermissaoController permissaoController = new PermissaoController();
+		Integer idDaPermissao = 10;
+		String nomeDaPermissao = "Atribuir algo";
+		
+		permissaoController.criarPermissaoController(idDaPermissao, nomeDaPermissao);
+		permissaoController.deletarPermissaoController(idDaPermissao);
+		
+		assertEquals(0, permissaoController.lerListaDePermissoesCriadas().size());
+		
+	}
+	
+	
 
 }
