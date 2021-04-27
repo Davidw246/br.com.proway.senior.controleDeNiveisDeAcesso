@@ -12,11 +12,18 @@ public class DaoUsuario implements DaoInterface<Usuario> {
 	}
 
 	public Usuario get(int id) {
+		for (int i = 0; i < user.size(); i++) {
+			if (user.get(i).getId() == id) {
+				return this.user.get(i);
 
-		return user.get(id);
+			}
+		}
+		return null;
 	}
 
-	public boolean update(int id, Usuario item) {
+	public boolean update(Usuario item) {
+		int idUsuarioRecebido = item.getId();
+		user.set(idUsuarioRecebido, item);
 
 		return false;
 	}
@@ -25,4 +32,5 @@ public class DaoUsuario implements DaoInterface<Usuario> {
 
 		return user;
 	}
+
 }
