@@ -1,4 +1,4 @@
-package controller.interfaces;
+package model.interfaces;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public interface InterfacePermissaoDAO {
 
 	public PermissaoModel criarPermissao(Integer idDaPermissao, String nomeDaPermissao);
 	
-	public void deletarPermissao(Integer idDaPermissao);
+	public boolean deletarPermissao(Integer idDaPermissao);
 	
 	public PermissaoModel buscarPermissao(Integer idDaPermissao);
 	

@@ -12,15 +12,15 @@ public class PermissaoDAOTest {
 	public void verificaSeOcorreACriacaoDeUmaPermissaoDAO() {
 
 		PermissaoDAO permissaoDAO = new PermissaoDAO();
-		PermissaoModel permissaEsperada = new PermissaoModel(10, "Atribuir algo");
+		PermissaoModel permissaoEsperada = new PermissaoModel(10, "Atribuir algo");
 
 		Integer idDaPermissao = 10;
 		String nomeDaPermissao = "Atribuir algo";
 		
 		PermissaoModel permissaoCriada = permissaoDAO.criarPermissao(idDaPermissao, nomeDaPermissao);
 
-		assertEquals(permissaEsperada.getIdDaPermissao(), permissaoCriada.getIdDaPermissao());
-		assertEquals(permissaEsperada.getNomeDaPermissao(), permissaoCriada.getNomeDaPermissao());
+		assertEquals(permissaoEsperada.getIdDaPermissao(), permissaoCriada.getIdDaPermissao());
+		assertEquals(permissaoEsperada.getNomeDaPermissao(), permissaoCriada.getNomeDaPermissao());
 	}
 
 	@Test

@@ -2,7 +2,7 @@ package model.acesso;
 
 import java.util.ArrayList;
 
-import controller.interfaces.InterfacePermissaoDAO;
+import model.interfaces.InterfacePermissaoDAO;
 
 /**
  * Classe PermissaoDao
@@ -19,9 +19,10 @@ public class PermissaoDAO implements InterfacePermissaoDAO {
 	/**
 	 * Método criarPermissao
 	 * 
-	 * Método responsável por inserir uma permissao de banco de dados conforme
-	 * atribuito associadado
+	 * Método responsável por inserir uma permissao no banco de dados conforme
+	 * atribuitos associadados
 	 * 
+	 * @param idDaPermissao Integer
 	 * @param nomeDaPermissao String
 	 * @return PermissaoModel 
 	 * 
@@ -41,11 +42,16 @@ public class PermissaoDAO implements InterfacePermissaoDAO {
 	 * id informado
 	 * 
 	 * @param idDaPermissao Integer
-	 * @return void
+	 * @return boolean
 	 * 
 	 */
-	public void deletarPermissao(Integer idDaPermissao) {
-		listaDePermissoesCriadas.remove(this.buscarPermissao(idDaPermissao));
+	public boolean deletarPermissao(Integer idDaPermissao) {
+		PermissaoModel permissaoEscolhida = this.buscarPermissao(idDaPermissao);
+		if (permissaoEscolhida != null) {
+			listaDePermissoesCriadas.remove(permissaoEscolhida);
+			return true;
+		}
+		return false;
 	}
 
 	/**
