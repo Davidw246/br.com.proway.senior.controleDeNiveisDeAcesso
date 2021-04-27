@@ -1,37 +1,32 @@
 package model.login;
 
-import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import model.interfaces.InterfaceHashSenha;
 
-public class HashSenha implements InterfaceHashSenha {
-
-	public String senhaDoUsuario = "123456";
-
-	// Será alterado 
+public class HashSenha {
 	/***
 	 * Criptografia para sennha.
 	 * 
 	 * 
-	 * Neste método esta sendo utilizado uma API do java para gerar um algoritmo para realizar a HASH
-	 * da senha.
+	 * Neste método esta sendo utilizado uma API do java "BigInteger" para gerar um algoritmo
+	 * para realizar a HASH da senha utilizando criptografia SHA-512.
 	 * 
 	 * @param String senha
-	 * @return
-	 * @throws NoSuchAlgorithmException
-	 * @throws UnsupportedEncodingException
+	 * @return valorCodificado
 	 */
-	public boolean validarHashSenha(String senha)
-			throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		if (senha.equals(senhaDoUsuario)) {
-			MessageDigest hash = MessageDigest.getInstance("MD5");
-			byte messageDigest[] = hash.digest(senha.getBytes("UTF-8"));
-			System.out.println(messageDigest);
-			return true;
-		} else {
-			return false;
+
+	public static String senhaDoUsuario(String senha) {
+		String valorCodificado = null;
+		try {
+			MessageDigest digest = MessageDigest.getInstance("SHA-512");
+			digest.reset();
+			digest.update(senha.getBytes("utf8"));
+			valorCodificado = String.format("%064x", new BigInteger(1, digest.digest()));
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		return valorCodificado;
 	}
 }
