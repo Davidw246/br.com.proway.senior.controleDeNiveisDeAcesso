@@ -7,7 +7,7 @@ public class Usuario {
 	int idDoUsuario;
 	String loginDoUsuario;
 	String senhaDoUsuario;
-	Perfil perfil;
+	PerfilModel perfil;
 	boolean isLogado;
 	// ArrayList<String> listaDasPermissoesDoUsuario = new ArrayList<String>();
 
@@ -15,7 +15,7 @@ public class Usuario {
 
 	}
 
-	public Usuario(int id, String login, String senha, Perfil perfil) {
+	public Usuario(int id, String login, String senha, PerfilModel perfil) {
 		this.idDoUsuario = id;
 		this.loginDoUsuario = login;
 		this.senhaDoUsuario = senha;
@@ -23,7 +23,7 @@ public class Usuario {
 	}
 
 	/**
-	 * MÈtodos m·gicos/MÈtodos de acesso Getters and Setters
+	 * M√©todos m√°gicos/M√©todos de acesso Getters and Setters
 	 * 
 	 * @return id int
 	 */
@@ -75,11 +75,11 @@ public class Usuario {
 	 * 
 	 * @return perfil Perfil
 	 */
-	public Perfil getPerfil() {
+	public PerfilModel getPerfil() {
 		return perfil;
 	}
 
-	public void setPerfil(Perfil perfil) {
+	public void setPerfil(PerfilModel perfil) {
 		this.perfil = perfil;
 	}
 
