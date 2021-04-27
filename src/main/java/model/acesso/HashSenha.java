@@ -1,4 +1,4 @@
-package model.login;
+package model.acesso;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
