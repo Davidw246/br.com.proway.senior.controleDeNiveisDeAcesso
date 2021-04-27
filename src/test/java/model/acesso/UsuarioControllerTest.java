@@ -61,14 +61,18 @@ public class UsuarioControllerTest {
 	@Test
 	public void testeAlteraSenha(){
 		UsuarioController userControl = new UsuarioController();
-		DaoUsuario daoUsuarioTest = new DaoUsuario();
 		Usuario user = new Usuario();
 		user.setSenha("1Pabcde");
 		user.setId(0);
-		daoUsuarioTest.user.add(user);
+		userControl.daoUsuario.user.add(user);
 		userControl.alteraSenha(0, "2Cabasde");
-		System.out.println(daoUsuarioTest.get(0).getSenha());
-		assertEquals("2Cabasde", daoUsuarioTest.get(0).getSenha());
+		assertEquals("2Cabasde", userControl.daoUsuario.get(0).getSenha());
+	}
+	
+	@Test
+	public void testeGerarCodigo() {
+		UsuarioController userControl = new UsuarioController();
+		assertTrue(userControl.gerarCodigo());
 	}
 
 }

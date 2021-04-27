@@ -1,10 +1,10 @@
-package model.acesso;
+package model.interfaces;
 
 import java.util.ArrayList;
 
 public interface DaoInterface<T> {
 	ArrayList<T> getAll();
-	T create(T item);
+	void create(T item);
 	T get (int id);
 	boolean update (T item);
 }

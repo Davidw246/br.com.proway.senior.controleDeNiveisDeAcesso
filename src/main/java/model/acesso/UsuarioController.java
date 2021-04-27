@@ -7,10 +7,11 @@ import java.util.regex.Pattern;
 
 import org.junit.internal.runners.model.EachTestNotifier;
 
-import model.interfaces.InterfaceAcessoUsuario;
+import model.interfaces.InterfaceUsuarioController;
 
-public class UsuarioController implements InterfaceAcessoUsuario {
+public class UsuarioController implements InterfaceUsuarioController {
 
+	UsuarioDAO daoUsuario = new UsuarioDAO();
 	/**
 	 * Verifica se os endereços de email foram cadastrados corretamente ou se
 	 * possuem caracteres especiais.
@@ -40,11 +41,13 @@ public class UsuarioController implements InterfaceAcessoUsuario {
 	}
 
 	/**
-	 * Verifica se a senha corresponde aos pre requisitos da expressao. (?=.*[0-9])
-	 * um dígito deve ocorrer pelo menos uma vez (?=.*[a-z]) uma letra minúscula
-	 * deve ocorrer pelo menos uma vez (?=.*[A-Z]) uma letra maiúscula deve ocorrer
-	 * pelo menos uma vez (?=\\S+$) nenhum espaço em branco permitido em toda a
-	 * string .{6,} pelo menos 6 caracteres
+	 * Verifica se a senha corresponde aos pre requisitos da expressao. 
+	 *
+	 *(?=.*[0-9]) um dígito deve ocorrer pelo menos uma vez 
+	 *(?=.*[a-z]) uma letra minúscula deve ocorrer pelo menos uma vez
+	 *(?=.*[A-Z]) uma letra maiúscula deve ocorrer pelo menos uma vez 
+	 *(?=\\S+$) nenhum espaço em branco permitido em toda a string 
+	 *.{6,} pelo menos 6 caracteres
 	 * 
 	 * @param String senha
 	 * @return senhaValida
@@ -76,20 +79,21 @@ public class UsuarioController implements InterfaceAcessoUsuario {
 	 */
 	// Adicionar enviarCodigo no método
 	public String enviarEmail(String loginDoUsuario) {
-		UsuarioController userControler = new UsuarioController();
-
-		String codigo = "" + this.gerarCodigo(1);
-		if (userControler.validarEmail(loginDoUsuario)) {
+		
+		String codigo = "" + this.gerarCodigo();
+		if (this.validarEmail(loginDoUsuario)) {
 			// Faz conexão com BD e envia e-mail para usuário
 			return codigo;
 		}
 		return codigo;
 	}
 
-	public void alteraSenha(int id, String senha) {
-		DaoUsuario daoUsuario = new DaoUsuario();
-		daoUsuario.get(id).setSenha(senha);
-		daoUsuario.update(daoUsuario.get(id));
+	public void alteraSenha(int id, String senhaNova) {
+		
+		Usuario usuarioEscolhido = daoUsuario.get(id);
+		daoUsuario.get(id).setSenha(senhaNova);
+		usuarioEscolhido.setSenha(senhaNova);
+		daoUsuario.update(usuarioEscolhido);
 	}
 
 	/**
@@ -99,13 +103,13 @@ public class UsuarioController implements InterfaceAcessoUsuario {
 	 * 
 	 * @return codigo de 5 digitos
 	 */
-	public int gerarCodigo(int codigo) {
+	public boolean gerarCodigo() {
 
 		Random random = new Random();
-		codigo = random.nextInt(99999);
+		int codigo = random.nextInt(99999);
 		if (codigo <= 10000) {
 			codigo += 10000;
 		}
-		return codigo;
+		return true;
 	}
 }
