@@ -14,7 +14,8 @@ import controller.interfaces.InterfacePermissaoDAO;
 
 public class PermissaoDAO implements InterfacePermissaoDAO {
 
-	ArrayList<PermissaoModel> listaDePermissoesCriadas;
+	private ArrayList<PermissaoModel> listaDePermissoesCriadas = new ArrayList<PermissaoModel>();
+	
 
 	/**
 	 * Método criarPermissao
@@ -48,7 +49,28 @@ public class PermissaoDAO implements InterfacePermissaoDAO {
 		listaDePermissoesCriadas.remove(permissaoEscolhida);
 	}
 
-	
+	/**
+	 * Método buscarPermissao
+	 * 
+	 * Método responsável por buscar, através do id, uma permissão dentro de uma lista de Permissoes.
+	 * Se a permissao existe, retorna a mesma. Se não, retorna nulo.
+	 * 
+	 * @param idDaPermissao Integer
+	 * @return PermissaoModel
+	 */
+	public PermissaoModel buscarPermissao(Integer idDaPermissao) {
+		for (PermissaoModel permissaoModel : listaDePermissoesCriadas) {
+			if (permissaoModel.getIdDaPermissao() == idDaPermissao) {
+				return permissaoModel;
+			}			
+		}
+		return null;
+	}
+
+	public ArrayList<PermissaoModel> getListaDePermissoesCriadas() {
+		return listaDePermissoesCriadas;
+	}
+
 	/**
 	 * Método atribuirPermissaoAoUsuario
 	 * 

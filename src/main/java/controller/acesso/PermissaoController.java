@@ -14,7 +14,12 @@ import model.acesso.PermissaoModel;
 
 public class PermissaoController {
 
+	private PermissaoDAO dao = new PermissaoDAO();
 	
+	public PermissaoDAO getDao() {
+		return dao;
+	}
+
 	/**
 	 * Método criarPermissaoController
 	 * 
@@ -26,37 +31,21 @@ public class PermissaoController {
 	 * @param listaDePermissoesCriadas
 	 * @return boolean
 	 */
-	public boolean criarPermissaoController(Integer idDaPermissao, String nomeDaPermissao,
-			ArrayList<PermissaoModel> listaDePermissoesCriadas) {
-
-		PermissaoDAO dao = new PermissaoDAO();
-		boolean validacao;
-		int i = 0;
+	public boolean criarPermissaoController(Integer idDaPermissao, String nomeDaPermissao) {
 		
-		if (listaDePermissoesCriadas.size() == 0) {
+		if (dao.getListaDePermissoesCriadas().size() == 0) {
 			dao.criarPermissao(idDaPermissao, nomeDaPermissao);
 			return true;
-
 		} else {
-			
-			do {
-				if (listaDePermissoesCriadas.get(i).getIdDaPermissao() == idDaPermissao) {
-					validacao = false;
-				} else {
-					validacao = true;
-					i++;
-				}
-
-			} while (validacao = true);
-
-			if (validacao = true) {
+			if (dao.buscarPermissao(idDaPermissao) == null) {
 				dao.criarPermissao(idDaPermissao, nomeDaPermissao);
 				return true;
-
 			} else {
 				return false;
-			}
+			}	
 		}
+		
+			
 	}
 
 	/**
