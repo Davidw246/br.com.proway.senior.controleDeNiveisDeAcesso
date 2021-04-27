@@ -54,5 +54,20 @@ public class UsuarioDAO implements DaoInterface<Usuario> {
 
 		return user;
 	}
+	/**
+	 * Método que remove usuario da lista de usuarios.
+	 * 
+	 * Recebe id do usuario a ser removido, percorre arraylist e remove pelo id igual.
+	 * @param int id do usuario a ser removido.
+	 *
+	 */
+	public void remove(int id) {
+		for (int i =0; i< user.size();i++) {
+			if(user.get(i).getId() == id) {
+				user.remove(i);
+			}
+		}
+		
+	}
 
 }

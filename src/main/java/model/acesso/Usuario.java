@@ -2,11 +2,11 @@ package model.acesso;
 
 public class Usuario {
 
-	int idDoUsuario;
-	String loginDoUsuario;
-	String senhaDoUsuario;
-	PerfilModel perfil;
-	boolean isLogado;
+	private int idDoUsuario;
+	private String loginDoUsuario;
+	private String senhaDoUsuario;
+	private PerfilModel perfil;
+	private boolean isLogado;
 
 	public Usuario() {
 	}
