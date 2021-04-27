@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import model.acesso.Perfil;
-import model.acesso.Permissao;
-import model.login.Usuario;
+import model.acesso.PerfilModel;
+import model.acesso.PermissaoModel;
+import model.acesso.Usuario;
 
 public class PerfilTest {
 
@@ -16,7 +16,7 @@ public class PerfilTest {
 	public void testCriaNomePerfil() {
 		String perfil = "Gerente de RH";
 		String permissao = "Visualizar";
-		Perfil nomeDoPerfil = new Perfil();
+		PerfilModel nomeDoPerfil = new PerfilModel();
 		assertTrue(nomeDoPerfil.criarNomePerfil(perfil, permissao));
 	}
 
@@ -24,7 +24,7 @@ public class PerfilTest {
 	public void testCriaNomePerfilFalse() {
 		String perfil = "";
 		String permissao = "";
-		Perfil nomeDoPerfil = new Perfil();
+		PerfilModel nomeDoPerfil = new PerfilModel();
 		assertFalse(nomeDoPerfil.criarNomePerfil(perfil, permissao));
 	}
 
@@ -32,7 +32,7 @@ public class PerfilTest {
 	public void testAdicionaPermissaoAPerfilDoUsuarioJaCriado() {
 		String nomeDoLogin = "Vanderlei";
 		String nomeDaPermissao = "Gerente";
-		Perfil perfil = new Perfil();
+		PerfilModel perfil = new PerfilModel();
 		Usuario usuario = new Usuario();
 		
 		perfil.listaDosPerfis.add("Gerente");
@@ -50,9 +50,9 @@ public class PerfilTest {
 		String nomeDoLogin = "Vanderlei";
 		String nomeDaPermissao = "Visualizar";
 		String nomeDoPerfil = "Gerente";
-		Perfil perfil = new Perfil();
+		PerfilModel perfil = new PerfilModel();
 		Usuario usuario = new Usuario();
-		Permissao permissao = new Permissao();
+		PermissaoModel permissao = new PermissaoModel();
 
 		perfil.listaDosPerfis.add(nomeDoPerfil);
 		permissao.listaDasPermissoes.add(nomeDaPermissao);

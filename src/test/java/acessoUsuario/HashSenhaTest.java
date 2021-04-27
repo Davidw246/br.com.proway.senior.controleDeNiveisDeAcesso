@@ -15,6 +15,6 @@ public class HashSenhaTest {
 		public void testHashSenha() {
 			HashSenha hash = new HashSenha();
 			String senha = "123456";
-			assertEquals(hash.senhaUsuario, senha);
+			assertEquals(hash.senhaDoUsuario, senha);
 		}
 	}
