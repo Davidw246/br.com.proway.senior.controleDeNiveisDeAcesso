@@ -4,35 +4,7 @@ import java.util.ArrayList;
 
 import model.interfaces.InterfacePerfil;
 
-public class Perfil implements InterfacePerfil {
-
-	private String nomeDoPerfil;
-	private String nomeDoLogin;
-
-	public ArrayList<String> listaDosPerfis = new ArrayList<String>();
-
-	Permissao permissaoDeAcesso = new Permissao();
-
-	/**
-	 * Métodos mágicos/Métodos de acesso.
-	 * 
-	 * @return nomeDoPerfil Tipo String
-	 */
-	public String getNomeDoPerfil() {
-		return nomeDoPerfil;
-	}
-
-	public void setNomeDoPerfil(String nomeDoPerfil) {
-		this.nomeDoPerfil = nomeDoPerfil;
-	}
-
-	public String getNomeDoLogin() {
-		return nomeDoLogin;
-	}
-
-	public void setNomeDoLogin(String nomeDoLogin) {
-		this.nomeDoLogin = nomeDoLogin;
-	}
+public class PerfilDAO implements InterfacePerfil{
 
 	/**
 	 * Um método que cria o nome do perfil/cadastra a permissão.
@@ -120,5 +92,6 @@ public class Perfil implements InterfacePerfil {
 		}
 		return validacao;
 	}
+	
 
 }

@@ -11,14 +11,14 @@ public class Usuario {
 	int idDoUsuario;
 	String loginDoUsuario;
 	String senhaDoUsuario;
-	Perfil perfil;
+	PerfilModel perfil;
 	//ArrayList<String> listaDasPermissoesDoUsuario = new ArrayList<String>();
 	
 	public Usuario() {
 		
 		}
 
-	public Usuario(int id, String login, String senha, Perfil perfil) {
+	public Usuario(int id, String login, String senha, PerfilModel perfil) {
 		this.idDoUsuario = id;
 		this.loginDoUsuario = login;
 		this.senhaDoUsuario = senha;
@@ -78,11 +78,11 @@ public class Usuario {
 	 * 
 	 * @return perfil Perfil
 	 */
-	public Perfil getPerfil() {
+	public PerfilModel getPerfil() {
 		return perfil;
 	}
 
-	public void setPerfil(Perfil perfil) {
+	public void setPerfil(PerfilModel perfil) {
 		this.perfil = perfil;
 	}
 
