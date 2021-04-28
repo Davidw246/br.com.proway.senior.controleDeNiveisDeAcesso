@@ -12,8 +12,6 @@ public class UsuarioModel {
 	public UsuarioModel() {
 	}
 
-
-
 	public UsuarioModel(int idDoUsuario, String loginDoUsuario, String senhaDoUsuario,
 			ArrayList<PerfilModel> listaDePerfisDoUsuario) {
 		super();
