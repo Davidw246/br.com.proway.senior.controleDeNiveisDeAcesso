@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -129,10 +130,10 @@ public class UsuarioController implements InterfaceUsuarioController {
 	 * @param int id do usuario procurado para a troca de perfil
 	 * @param Perfil perfilNovo do usuario que vai ter o perfil trocado.
 	 */
-	public void alteraPerfil(int id, PerfilModel novoPerfil) {
+	public void alteraPerfil(int id, ArrayList<PerfilModel> listaPerfil) {
 	
 		UsuarioModel usuarioEscolhido = daoUsuario.get(id);
-		usuarioEscolhido.setPerfil(novoPerfil);
+		usuarioEscolhido.setListaDePerfisDoUsuario(listaPerfil);
 		daoUsuario.update(usuarioEscolhido);
 	}
 

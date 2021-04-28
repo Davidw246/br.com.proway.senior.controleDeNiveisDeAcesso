@@ -67,9 +67,12 @@ public class UsuarioDAOTest {
 		listaPermissao.add(permissao);
 		
 		PerfilModel perfilTest = new PerfilModel(1, "Perfil teste", listaPermissao);
+		
+		ArrayList<PerfilModel> listaPerfil = new ArrayList<PerfilModel>();
+		listaPerfil.add(perfilTest);
 
-		UsuarioModel userUm = new UsuarioModel(0, "vcperes@furb.br", "Va123456", perfilTest);
-		UsuarioModel userDois = new UsuarioModel(1, "vitorperes1104@gmail.com", "Ca123456", perfilTest);
+		UsuarioModel userUm = new UsuarioModel(0, "vcperes@furb.br", "Va123456", listaPerfil);
+		UsuarioModel userDois = new UsuarioModel(1, "vitorperes1104@gmail.com", "Ca123456", listaPerfil);
 		userControl.daoUsuario.user.add(userUm);
 		userControl.daoUsuario.user.add(userDois);
 		ArrayList<UsuarioModel> arrayUsuariosTest = userControl.daoUsuario.getAll();
@@ -85,9 +88,12 @@ public class UsuarioDAOTest {
 		listaPermissao.add(permissao);
 		
 		PerfilModel perfilTest = new PerfilModel(1, "Perfil teste", listaPermissao);
+		
+		ArrayList<PerfilModel> listaPerfil = new ArrayList<PerfilModel>();
+		listaPerfil.add(perfilTest);
 
-		UsuarioModel userUm = new UsuarioModel(0, "vcperes@furb.br", "Va123456", perfilTest);
-		UsuarioModel userDois = new UsuarioModel(1, "vitorperes1104@gmail.com", "Ca123456", perfilTest);
+		UsuarioModel userUm = new UsuarioModel(0, "vcperes@furb.br", "Va123456", listaPerfil);
+		UsuarioModel userDois = new UsuarioModel(1, "vitorperes1104@gmail.com", "Ca123456", listaPerfil);
 
 		userControl.daoUsuario.user.add(userUm);
 		userControl.daoUsuario.user.add(userDois);

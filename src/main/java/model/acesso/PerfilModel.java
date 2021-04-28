@@ -54,5 +54,4 @@ public class PerfilModel {
 		return "PerfilModel [idDoPerfil=" + idDoPerfil + ", nomeDoPerfil=" + nomeDoPerfil
 				+ ", listaDePermissoesDoPerfil=" + listaDePermissoesDoPerfil + "]";
 	}
-
 }
