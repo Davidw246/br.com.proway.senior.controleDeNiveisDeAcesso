@@ -123,11 +123,17 @@ public class UsuarioControllerTest {
 		PerfilModel perfilNormal = new PerfilModel(1, "Teste", listaPermissaoNormal);
 		PerfilModel perfilTest = new PerfilModel(2, "Teste alterado", listaPermissaoTest);
 
-		user.setPerfil(perfilNormal);
+		ArrayList<PerfilModel> listaPerfilNormal = new ArrayList<PerfilModel>();
+		listaPerfilNormal.add(perfilTest);
+		ArrayList<PerfilModel> listaPerfilTest = new ArrayList<PerfilModel>();
+		listaPerfilTest.add(perfilTest);
+		
+		
+		user.setListaDePerfisDoUsuario(listaPerfilNormal);
 		userControl.daoUsuario.user.add(user);
-		userControl.alteraPerfil(0, perfilTest);
+		userControl.alteraPerfil(0, listaPerfilTest);
 
-		assertEquals(perfilTest, userControl.daoUsuario.user.get(0).getPerfil());
+		assertEquals(perfilTest, userControl.daoUsuario.user.get(0).getListaDePerfisDoUsuario().get(0));
 	}
 
 
@@ -137,11 +143,15 @@ public class UsuarioControllerTest {
 		PermissaoModel permissao = new PermissaoModel(1, "Permissao alteração de perfil");
 		ArrayList<PermissaoModel> listaPermissao = new ArrayList<PermissaoModel>();
 		listaPermissao.add(permissao);
+
 		
 		PerfilModel perfilTest = new PerfilModel(1, "Perfil teste", listaPermissao);
+		
+		ArrayList<PerfilModel> listaPerfil = new ArrayList<PerfilModel>();
+		listaPerfil.add(perfilTest);
 
-		UsuarioModel userUm = new UsuarioModel(0, "vcperes@furb.br", "Va123456", perfilTest);
-		UsuarioModel userDois = new UsuarioModel(1, "vitorperes1104@gmail.com", "Ca123456", perfilTest);
+		UsuarioModel userUm = new UsuarioModel(0, "vcperes@furb.br", "Va123456", listaPerfil);
+		UsuarioModel userDois = new UsuarioModel(1, "vitorperes1104@gmail.com", "Ca123456", listaPerfil);
 
 		userControl.daoUsuario.user.add(userUm);
 		userControl.daoUsuario.user.add(userDois);
