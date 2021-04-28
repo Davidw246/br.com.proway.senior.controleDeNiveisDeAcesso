@@ -8,6 +8,16 @@ import org.junit.Test;
 
 import controller.UsuarioController;
 
+/**
+ * 
+ * @author Vitor Peres
+ * @author David Willian
+ * @author Leonardo Pereira
+ * vitor.peres@senior.com.br
+ * leonardo.pereira@senior.com.br
+ * david.oliveira@senior.com.br
+ * 
+ */
 public class UsuarioDAOTest {
 
 	@Test

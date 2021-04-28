@@ -11,6 +11,16 @@ import model.acesso.PerfilModel;
 import model.acesso.PermissaoModel;
 import model.acesso.Usuario;
 
+/**
+ * 
+ * @author Vitor Peres
+ * @author David Willian
+ * @author Leonardo Pereira
+ * vitor.peres@senior.com.br
+ * leonardo.pereira@senior.com.br
+ * david.oliveira@senior.com.br
+ * 
+ */
 public class UsuarioControllerTest {
 
 	@Test

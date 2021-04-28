@@ -9,6 +9,16 @@ import model.acesso.Usuario;
 import model.acesso.UsuarioDAO;
 import model.interfaces.InterfaceUsuarioController;
 
+/**
+ * 
+ * @author Vitor Peres
+ * @author David Willian
+ * @author Leonardo Pereira
+ * vitor.peres@senior.com.br
+ * leonardo.pereira@senior.com.br
+ * david.oliveira@senior.com.br
+ * 
+ */
 public class UsuarioController implements InterfaceUsuarioController {
 
 	public UsuarioDAO daoUsuario = new UsuarioDAO();
