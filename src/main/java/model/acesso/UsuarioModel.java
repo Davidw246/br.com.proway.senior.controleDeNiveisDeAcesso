@@ -21,7 +21,6 @@ public class UsuarioModel {
 		this.listaDePerfisDoUsuario = listaDePerfisDoUsuario;
 	}
 
-
 	public ArrayList<PerfilModel> getListaDePerfisDoUsuario() {
 		return listaDePerfisDoUsuario;
 	}
