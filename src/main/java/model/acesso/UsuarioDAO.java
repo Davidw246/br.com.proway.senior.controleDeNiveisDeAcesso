@@ -1,11 +1,11 @@
 package model.acesso;
 
 import java.util.ArrayList;
-import model.interfaces.DaoInterface;
+import model.interfaces.IterfaceUsuarioDAO;
 
-public class UsuarioDAO implements DaoInterface<Usuario> {
+public class UsuarioDAO implements IterfaceUsuarioDAO<Usuario> {
 
-	ArrayList<Usuario> user = new ArrayList<Usuario>();
+	public ArrayList<Usuario> user = new ArrayList<Usuario>();
 
 	/**
 	 * Cria usuário novo.

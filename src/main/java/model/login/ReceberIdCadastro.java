@@ -16,6 +16,8 @@ import java.util.regex.Pattern;
  * 
  *
  */
+
+	@Deprecated
 	public class ReceberIdCadastro {
 		final private static ArrayList<Integer> id = new ArrayList<Integer>(); // Visível apenas nesta classe
 		final private static ArrayList<String> nome = new ArrayList<String>(); // Visível apenas nesta classe
