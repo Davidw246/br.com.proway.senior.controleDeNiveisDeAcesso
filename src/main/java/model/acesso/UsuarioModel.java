@@ -1,6 +1,6 @@
 package model.acesso;
 
-public class Usuario {
+public class UsuarioModel {
 
 	private int idDoUsuario;
 	private String loginDoUsuario;
@@ -8,10 +8,10 @@ public class Usuario {
 	private PerfilModel perfil;
 	private boolean isLogado;
 
-	public Usuario() {
+	public UsuarioModel() {
 	}
 
-	public Usuario(int id, String login, String senha, PerfilModel perfil) {
+	public UsuarioModel(int id, String login, String senha, PerfilModel perfil) {
 		this.idDoUsuario = id;
 		this.loginDoUsuario = login;
 		this.senhaDoUsuario = senha;

@@ -3,8 +3,7 @@ package model.acesso;
 import java.util.ArrayList;
 import model.interfaces.InterfaceUsuarioDAO;
 
-
-public class UsuarioDAO implements InterfaceUsuarioDAO<Usuario> {
+public class UsuarioDAO implements InterfaceUsuarioDAO<UsuarioModel> {
 
 /**
  * 
@@ -17,16 +16,16 @@ public class UsuarioDAO implements InterfaceUsuarioDAO<Usuario> {
  * 
  */
 
-	public ArrayList<Usuario> user = new ArrayList<Usuario>();
+	public ArrayList<UsuarioModel> user = new ArrayList<UsuarioModel>();
 
 	/**
 	 * Cria usuário novo.
 	 * 
 	 * Recebe objeto e adiciona no ArrayList<Usuario> user da classe UsuarioDAO
-	 * @param Usuario novoUser como parâmetro para o DAO adicionar na lista de usuarios.
+	 * @param UsuarioModel novoUser como parâmetro para o DAO adicionar na lista de usuarios.
 	 */
-	public void create(Usuario novoUsuario) {
-		Usuario user = novoUsuario;
+	public void create(UsuarioModel novoUsuario) {
+		UsuarioModel user = novoUsuario;
 		this.user.add(user);
 	}
 
@@ -36,7 +35,7 @@ public class UsuarioDAO implements InterfaceUsuarioDAO<Usuario> {
 	 * @param int id do usuário que quer buscar
 	 * @return retorna objeto Usuario da lista de usuarios.
 	 */
-	public Usuario get(int id) {
+	public UsuarioModel get(int id) {
 		for (int i = 0; i < this.user.size(); i++) {
 			if (this.user.get(i).getId() == id) {
 				return this.user.get(i);
@@ -49,10 +48,10 @@ public class UsuarioDAO implements InterfaceUsuarioDAO<Usuario> {
 	/**
 	 * Atualiza objeto usuario na lista de usuarios da classe UsuarioDAO
 	 * 
-	 * @param Usuario usuario atualizado que substitui objeto na lista de usuarios
+	 * @param UsuarioModel usuario atualizado que substitui objeto na lista de usuarios
 	 * @return Boolean true apos atualizacao
 	 */
-	public boolean update(Usuario usuarioAtualizado) {
+	public boolean update(UsuarioModel usuarioAtualizado) {
 		user.set(usuarioAtualizado.getId(), usuarioAtualizado);
 		return true;
 	}
@@ -62,7 +61,7 @@ public class UsuarioDAO implements InterfaceUsuarioDAO<Usuario> {
 	 * 
 	 * @return ArrayList<Usuario>
 	 */
-	public ArrayList<Usuario> getAll() {
+	public ArrayList<UsuarioModel> getAll() {
 
 		return user;
 	}

@@ -7,6 +7,9 @@ import java.util.ArrayList;
  * 
  * Defini os atributos necessários para instanciar um perfil,
  * o que é constituído por permissões.
+ * 
+ * @author Lucas Ivan, lucas.ivan@senior.com.br
+ * @author Sarah Brito, sarah.brito@senior.com.br
  *
  */
 public class PerfilModel {
@@ -38,8 +41,6 @@ public class PerfilModel {
 	public void setListaDePermissoesDoPerfil(ArrayList<PermissaoModel> listaDePermissoesDoPerfil) {
 		this.listaDePermissoesDoPerfil = listaDePermissoesDoPerfil;
 	}
-	
-	
 
 	public PerfilModel(Integer idDoPerfil, String nomeDoPerfil, ArrayList<PermissaoModel> listaDePermissoesDoPerfil) {
 		super();

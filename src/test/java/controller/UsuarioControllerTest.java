@@ -1,4 +1,4 @@
-package controller.acesso;
+package controller;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +9,7 @@ import org.junit.Test;
 import controller.UsuarioController;
 import model.acesso.PerfilModel;
 import model.acesso.PermissaoModel;
-import model.acesso.Usuario;
+import model.acesso.UsuarioModel;
 
 /**
  * 
@@ -26,7 +26,7 @@ public class UsuarioControllerTest {
 	@Test
 	public void testeSeEmailValido() {
 		UsuarioController userControl = new UsuarioController();
-		Usuario user = new Usuario();
+		UsuarioModel user = new UsuarioModel();
 		user.setLogin("vitorperes1104@gmail.com");
 		assertTrue(userControl.validarEmail(user.getLogin()));
 	}
@@ -34,7 +34,7 @@ public class UsuarioControllerTest {
 	@Test
 	public void testeSeEmailInvalido() {
 		UsuarioController userControl = new UsuarioController();
-		Usuario user = new Usuario();
+		UsuarioModel user = new UsuarioModel();
 		user.setLogin("vitorperes110gmail.com");
 		assertFalse(userControl.validarEmail(user.getLogin()));
 	}
@@ -42,7 +42,7 @@ public class UsuarioControllerTest {
 	@Test
 	public void testeSeEmailVazio() {
 		UsuarioController userControl = new UsuarioController();
-		Usuario user = new Usuario();
+		UsuarioModel user = new UsuarioModel();
 		user.setLogin("");
 		assertFalse(userControl.validarEmail(user.getLogin()));
 	}
@@ -50,7 +50,7 @@ public class UsuarioControllerTest {
 	@Test
 	public void testeSeSenhaValida() {
 		UsuarioController userControl = new UsuarioController();
-		Usuario user = new Usuario();
+		UsuarioModel user = new UsuarioModel();
 		user.setSenha("1Vaaaa");
 		assertTrue(userControl.validarSenha(user.getSenha()));
 	}
@@ -58,7 +58,7 @@ public class UsuarioControllerTest {
 	@Test
 	public void testeSeSenhaInvalida() {
 		UsuarioController userControl = new UsuarioController();
-		Usuario user = new Usuario();
+		UsuarioModel user = new UsuarioModel();
 		user.setSenha("123124321");
 		assertFalse(userControl.validarSenha(user.getSenha()));
 	}
@@ -66,7 +66,7 @@ public class UsuarioControllerTest {
 	@Test
 	public void testeSeSenhaMenor() {
 		UsuarioController userControl = new UsuarioController();
-		Usuario user = new Usuario();
+		UsuarioModel user = new UsuarioModel();
 		user.setSenha("1Pa");
 		assertFalse(userControl.validarSenha(user.getSenha()));
 	}
@@ -74,7 +74,7 @@ public class UsuarioControllerTest {
 	@Test
 	public void testeSeSenhaMaior() {
 		UsuarioController userControl = new UsuarioController();
-		Usuario user = new Usuario();
+		UsuarioModel user = new UsuarioModel();
 		user.setSenha("1Pa124126124131364346413523342433244143143131413311");
 		assertFalse(userControl.validarSenha(user.getSenha()));
 	}
@@ -82,7 +82,7 @@ public class UsuarioControllerTest {
 	@Test
 	public void testeAlteraSenha() {
 		UsuarioController userControl = new UsuarioController();
-		Usuario user = new Usuario();
+		UsuarioModel user = new UsuarioModel();
 		user.setSenha("1Pabcde");
 		user.setId(0);
 		userControl.daoUsuario.user.add(user);
@@ -93,7 +93,7 @@ public class UsuarioControllerTest {
 	@Test
 	public void testeAlteraLogin() {
 		UsuarioController userControl = new UsuarioController();
-		Usuario user = new Usuario();
+		UsuarioModel user = new UsuarioModel();
 		user.setLogin("vitorperes1104@gmail.com");
 		user.setId(0);
 		userControl.daoUsuario.user.add(user);
@@ -111,7 +111,7 @@ public class UsuarioControllerTest {
 	public void testeAlteraPerfil() {
 
 		UsuarioController userControl = new UsuarioController();
-		Usuario user = new Usuario();
+		UsuarioModel user = new UsuarioModel();
 
 		PermissaoModel permissaoNormal = new PermissaoModel(1, "Permissao alteração de perfil");
 		ArrayList<PermissaoModel> listaPermissaoNormal = new ArrayList<PermissaoModel>();
@@ -128,6 +128,26 @@ public class UsuarioControllerTest {
 		userControl.alteraPerfil(0, perfilTest);
 
 		assertEquals(perfilTest, userControl.daoUsuario.user.get(0).getPerfil());
+	}
+
+
+	@Test
+	public void testeRemoveUsuario() {
+		UsuarioController userControl = new UsuarioController();
+		PermissaoModel permissao = new PermissaoModel(1, "Permissao alteração de perfil");
+		ArrayList<PermissaoModel> listaPermissao = new ArrayList<PermissaoModel>();
+		listaPermissao.add(permissao);
+		
+		PerfilModel perfilTest = new PerfilModel(1, "Perfil teste", listaPermissao);
+
+		UsuarioModel userUm = new UsuarioModel(0, "vcperes@furb.br", "Va123456", perfilTest);
+		UsuarioModel userDois = new UsuarioModel(1, "vitorperes1104@gmail.com", "Ca123456", perfilTest);
+
+		userControl.daoUsuario.user.add(userUm);
+		userControl.daoUsuario.user.add(userDois);
+		userControl.daoUsuario.remove(0);
+	
+		assertEquals(1, userControl.daoUsuario.user.get(0).getId());
 	}
 
 }

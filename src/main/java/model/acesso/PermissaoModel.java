@@ -5,6 +5,9 @@ package model.acesso;
  * 
  * Recebe os atributos necessários para instanciar uma permissão,
  * que será vinculada a um perfil.
+ * 
+ * @author Lucas Ivan, lucas.ivan@senior.com.br
+ * @author Sarah Brito, sarah.brito@senior.com.br
  */
 
 public class PermissaoModel {

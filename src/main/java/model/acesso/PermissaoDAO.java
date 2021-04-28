@@ -9,6 +9,9 @@ import model.interfaces.InterfacePermissaoDAO;
  * 
  * Classe que implementa a interface que se relaciona com o banco de dados de permissões
  * 
+ * @author Lucas Ivan, lucas.ivan@senior.com.br
+ * @author Sarah Brito, sarah.brito@senior.com.br
+ * 
  */
 
 public class PermissaoDAO implements InterfacePermissaoDAO {
