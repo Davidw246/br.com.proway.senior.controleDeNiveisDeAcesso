@@ -24,7 +24,7 @@ public class UsuarioDAOTest {
 	public void testCreateUsuario() {
 		
 		UsuarioDAO userDAO = new UsuarioDAO();
-		Usuario usuario = new Usuario();
+		UsuarioModel usuario = new UsuarioModel();
 		usuario.setId(0);
 		usuario.setLogin("vitorperes1104@gmail.com");
 		userDAO.create(usuario);
@@ -36,11 +36,11 @@ public class UsuarioDAOTest {
 	@Test
 	public void testGetUsuario() {
 		UsuarioDAO userDAO = new UsuarioDAO();
-		Usuario usuario = new Usuario();
+		UsuarioModel usuario = new UsuarioModel();
 		usuario.setId(0);
 		usuario.setLogin("vitorperes1104@gmail.com");
 		userDAO.create(usuario);
-		Usuario userTest = userDAO.get(0);
+		UsuarioModel userTest = userDAO.get(0);
 		
 		assertEquals("vitorperes1104@gmail.com", userTest.getLogin());
 		
@@ -49,7 +49,7 @@ public class UsuarioDAOTest {
 	@Test
 	public void testUpdateUsuario() {
 		UsuarioController userControl = new UsuarioController();
-		Usuario usuario = new Usuario();
+		UsuarioModel usuario = new UsuarioModel();
 		usuario.setId(0);
 		usuario.setLogin("Teste");
 		userControl.daoUsuario.create(usuario);
@@ -68,11 +68,11 @@ public class UsuarioDAOTest {
 		
 		PerfilModel perfilTest = new PerfilModel(1, "Perfil teste", listaPermissao);
 
-		Usuario userUm = new Usuario(0, "vcperes@furb.br", "Va123456", perfilTest);
-		Usuario userDois = new Usuario(1, "vitorperes1104@gmail.com", "Ca123456", perfilTest);
+		UsuarioModel userUm = new UsuarioModel(0, "vcperes@furb.br", "Va123456", perfilTest);
+		UsuarioModel userDois = new UsuarioModel(1, "vitorperes1104@gmail.com", "Ca123456", perfilTest);
 		userControl.daoUsuario.user.add(userUm);
 		userControl.daoUsuario.user.add(userDois);
-		ArrayList<Usuario> arrayUsuariosTest = userControl.daoUsuario.getAll();
+		ArrayList<UsuarioModel> arrayUsuariosTest = userControl.daoUsuario.getAll();
 		assertEquals("vcperes@furb.br", arrayUsuariosTest.get(0).getLogin());
 		assertEquals("vitorperes1104@gmail.com", arrayUsuariosTest.get(1).getLogin());
 	}
@@ -86,8 +86,8 @@ public class UsuarioDAOTest {
 		
 		PerfilModel perfilTest = new PerfilModel(1, "Perfil teste", listaPermissao);
 
-		Usuario userUm = new Usuario(0, "vcperes@furb.br", "Va123456", perfilTest);
-		Usuario userDois = new Usuario(1, "vitorperes1104@gmail.com", "Ca123456", perfilTest);
+		UsuarioModel userUm = new UsuarioModel(0, "vcperes@furb.br", "Va123456", perfilTest);
+		UsuarioModel userDois = new UsuarioModel(1, "vitorperes1104@gmail.com", "Ca123456", perfilTest);
 
 		userControl.daoUsuario.user.add(userUm);
 		userControl.daoUsuario.user.add(userDois);
