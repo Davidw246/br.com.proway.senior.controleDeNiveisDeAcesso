@@ -1,12 +1,5 @@
 package model.interfaces;
 
-
-/**
- * Classe deprecated, pois os métodos não estão impactando nos demais 
- * processos do aplicação. Fica disponível para histórico e reaproveitamento.
- */
-
-@Deprecated
 public interface InterfaceReceberIdCadastro {
 	
 	/**
