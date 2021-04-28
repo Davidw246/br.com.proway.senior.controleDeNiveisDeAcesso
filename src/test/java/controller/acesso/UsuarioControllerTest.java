@@ -120,23 +120,4 @@ public class UsuarioControllerTest {
 		assertEquals(perfilTest, userControl.daoUsuario.user.get(0).getPerfil());
 	}
 
-	@Test
-	public void testeRemoveUsuario() {
-		UsuarioController userControl = new UsuarioController();
-		PermissaoModel permissao = new PermissaoModel(1, "Permissao alteração de perfil");
-		ArrayList<PermissaoModel> listaPermissao = new ArrayList<PermissaoModel>();
-		listaPermissao.add(permissao);
-		
-		PerfilModel perfilTest = new PerfilModel(1, "Perfil teste", listaPermissao);
-
-		Usuario userUm = new Usuario(0, "vcperes@furb.br", "Va123456", perfilTest);
-		Usuario userDois = new Usuario(1, "vitorperes1104@gmail.com", "Ca123456", perfilTest);
-
-		userControl.daoUsuario.user.add(userUm);
-		userControl.daoUsuario.user.add(userDois);
-		userControl.daoUsuario.remove(0);
-	
-		assertEquals(1, userControl.daoUsuario.user.get(0).getId());
-	}
-
 }
