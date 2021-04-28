@@ -1,9 +1,21 @@
 package model.acesso;
 
 import java.util.ArrayList;
-import model.interfaces.IterfaceUsuarioDAO;
+import model.interfaces.InterfaceUsuarioDAO;
 
-public class UsuarioDAO implements IterfaceUsuarioDAO<Usuario> {
+
+public class UsuarioDAO implements InterfaceUsuarioDAO<Usuario> {
+
+/**
+ * 
+ * @author Vitor Peres
+ * @author David Willian
+ * @author Leonardo Pereira
+ * vitor.peres@senior.com.br
+ * leonardo.pereira@senior.com.br
+ * david.oliveira@senior.com.br
+ * 
+ */
 
 	public ArrayList<Usuario> user = new ArrayList<Usuario>();
 
