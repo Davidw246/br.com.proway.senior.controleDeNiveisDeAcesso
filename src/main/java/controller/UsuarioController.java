@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import model.acesso.PerfilModel;
-import model.acesso.Usuario;
+import model.acesso.UsuarioModel;
 import model.acesso.UsuarioDAO;
 import model.interfaces.InterfaceUsuarioController;
 
@@ -90,7 +90,7 @@ public class UsuarioController implements InterfaceUsuarioController {
 	 */
 	public void alteraSenha(int id, String senhaNova) {
 		
-		Usuario usuarioEscolhido = daoUsuario.get(id);
+		UsuarioModel usuarioEscolhido = daoUsuario.get(id);
 		
 		usuarioEscolhido.setSenha(senhaNova);
 		daoUsuario.update(usuarioEscolhido);
@@ -106,7 +106,7 @@ public class UsuarioController implements InterfaceUsuarioController {
 	 */
 	public void alteraLogin(int id, String loginNovo) {
 		
-		Usuario usuarioEscolhido = daoUsuario.get(id);
+		UsuarioModel usuarioEscolhido = daoUsuario.get(id);
 		usuarioEscolhido.setLogin(loginNovo);
 		daoUsuario.update(usuarioEscolhido);
 	}
@@ -121,7 +121,7 @@ public class UsuarioController implements InterfaceUsuarioController {
 	 */
 	public void alteraPerfil(int id, PerfilModel novoPerfil) {
 	
-		Usuario usuarioEscolhido = daoUsuario.get(id);
+		UsuarioModel usuarioEscolhido = daoUsuario.get(id);
 		usuarioEscolhido.setPerfil(novoPerfil);
 		daoUsuario.update(usuarioEscolhido);
 	}

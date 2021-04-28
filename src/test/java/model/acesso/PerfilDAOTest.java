@@ -4,6 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * @author Lucas Ivan, lucas.ivan@senior.com.br
+ * @author Sarah Brito, sarah.brito@senior.com.br
+ */
+
 public class PerfilDAOTest {
 
 	@Test

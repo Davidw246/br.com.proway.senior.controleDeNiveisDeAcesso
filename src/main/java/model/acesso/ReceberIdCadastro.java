@@ -1,4 +1,4 @@
-package model.login;
+package model.acesso;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -11,10 +11,12 @@ import java.util.regex.Pattern;
  * sistema. O id recebido é do tipo int, enquanto os demais dados (nome e
  * e-mail) são Strings.
  * 
- * 
  * @author Vanderlei
- * 
- *
+ */
+
+/**
+ * Classe deprecated, pois os métodos não estão impactando nos demais 
+ * processos do aplicação. Fica disponível para histórico e reaproveitamento.
  */
 
 	@Deprecated

@@ -9,6 +9,9 @@ import model.acesso.PermissaoModel;
  * Classe PermissaoController
  * 
  * Classe responsável pelas validações e verificações das entradas e saídas
+ * 
+ * @author Lucas Ivan, lucas.ivan@senior.com.br
+ * @author Sarah Brito, sarah.brito@senior.com.br
  *
  */
 
@@ -53,22 +56,6 @@ public class PermissaoController {
 		dao.deletarPermissao(idDaPermissao);
 	}
 
-	/**
-	 * Método atribuirPermissaoAoUsuario
-	 * 
-	 * Método responsável por atribuir uma permissao existente no banco de dados
-	 * para o usuário informado
-	 * 
-	 * @param usuario       Usuario
-	 * @param idDaPermissao Integer
-	 * @return void
-	 * 
-	 */
-	
-//	public void atribuirPermissaoAoUsuario(Usuario usuario, Integer idDaPermissao) {
-//	
-//	}
-	
 	/**
 	 * Método lerListaDePermissoesCriadas
 	 * 

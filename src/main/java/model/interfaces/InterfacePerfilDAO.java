@@ -3,7 +3,11 @@ package model.interfaces;
 import java.util.ArrayList;
 
 import model.acesso.PerfilModel;
-import model.acesso.PermissaoModel;
+
+/**
+ * @author Lucas Ivan, lucas.ivan@senior.com.br
+ * @author Sarah Brito, sarah.brito@senior.com.br
+ */
 
 public interface InterfacePerfilDAO {
 	

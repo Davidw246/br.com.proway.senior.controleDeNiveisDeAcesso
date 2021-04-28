@@ -1,4 +1,4 @@
-package controller.acesso;
+package controller;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,11 @@ import org.junit.Test;
 
 import controller.PerfilController;
 import controller.PermissaoController;
+
+/**
+ * @author Lucas Ivan, lucas.ivan@senior.com.br
+ * @author Sarah Brito, sarah.brito@senior.com.br
+ */
 
 public class PerfilControllerTest {
 

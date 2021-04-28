@@ -11,7 +11,9 @@ import model.acesso.PermissaoModel;
  * Classe PerfilController
  * 
  * Classe responsável pelas validações e verificações das entradas e saídas
- *
+ * 
+ * @author Lucas Ivan, lucas.ivan@senior.com.br
+ * @author Sarah Brito, sarah.brito@senior.com.br
  */
 
 public class PerfilController {
