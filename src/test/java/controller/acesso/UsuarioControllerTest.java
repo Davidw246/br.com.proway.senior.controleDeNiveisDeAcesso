@@ -1,8 +1,15 @@
-package model.acesso;
+package controller.acesso;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
+
+import controller.UsuarioController;
+import model.acesso.PerfilModel;
+import model.acesso.PermissaoModel;
+import model.acesso.Usuario;
 
 public class UsuarioControllerTest {
 
@@ -97,10 +104,14 @@ public class UsuarioControllerTest {
 		Usuario user = new Usuario();
 
 		PermissaoModel permissaoNormal = new PermissaoModel(1, "Permissao alteração de perfil");
+		ArrayList<PermissaoModel> listaPermissaoNormal = new ArrayList<PermissaoModel>();
+		listaPermissaoNormal.add(permissaoNormal);
 		PermissaoModel permissaoTest = new PermissaoModel(2, "Permissao alterada Test");
+		ArrayList<PermissaoModel> listaPermissaoTest = new ArrayList<PermissaoModel>();
+		listaPermissaoTest.add(permissaoTest);
 
-		PerfilModel perfilNormal = new PerfilModel(1, "Teste", permissaoNormal);
-		PerfilModel perfilTest = new PerfilModel(2, "Teste alterado", permissaoTest);
+		PerfilModel perfilNormal = new PerfilModel(1, "Teste", listaPermissaoNormal);
+		PerfilModel perfilTest = new PerfilModel(2, "Teste alterado", listaPermissaoTest);
 
 		user.setPerfil(perfilNormal);
 		userControl.daoUsuario.user.add(user);
@@ -113,7 +124,10 @@ public class UsuarioControllerTest {
 	public void testeRemoveUsuario() {
 		UsuarioController userControl = new UsuarioController();
 		PermissaoModel permissao = new PermissaoModel(1, "Permissao alteração de perfil");
-		PerfilModel perfilTest = new PerfilModel(1, "Perfil teste", permissao);
+		ArrayList<PermissaoModel> listaPermissao = new ArrayList<PermissaoModel>();
+		listaPermissao.add(permissao);
+		
+		PerfilModel perfilTest = new PerfilModel(1, "Perfil teste", listaPermissao);
 
 		Usuario userUm = new Usuario(0, "vcperes@furb.br", "Va123456", perfilTest);
 		Usuario userDois = new Usuario(1, "vitorperes1104@gmail.com", "Ca123456", perfilTest);

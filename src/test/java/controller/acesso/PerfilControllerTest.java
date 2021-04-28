@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import controller.PerfilController;
+import controller.PermissaoController;
+
 public class PerfilControllerTest {
 
 	@Test

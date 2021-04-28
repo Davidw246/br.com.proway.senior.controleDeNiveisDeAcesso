@@ -1,13 +1,17 @@
-package model.acesso;
+package controller;
 
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import model.acesso.PerfilModel;
+import model.acesso.Usuario;
+import model.acesso.UsuarioDAO;
 import model.interfaces.InterfaceUsuarioController;
 
 public class UsuarioController implements InterfaceUsuarioController {
 
-	UsuarioDAO daoUsuario = new UsuarioDAO();
+	public UsuarioDAO daoUsuario = new UsuarioDAO();
 	
 	/**
 	 * Verifica se os endereços de email foram cadastrados corretamente ou se

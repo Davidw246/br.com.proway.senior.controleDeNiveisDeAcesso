@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import controller.acesso.PermissaoController;
+import controller.PermissaoController;
 
 public class PermissaoDAOTest {
 
